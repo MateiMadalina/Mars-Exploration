@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class MapLoaderImplTest {
     private final MapFileReader mapFileReader = new MapFileReaderImpl();
     private final MapLoader mapLoader = new MapLoaderImpl(mapFileReader);
-
     private final String mapFile = "src/main/resources/exploration-0.map";
 
     @Test

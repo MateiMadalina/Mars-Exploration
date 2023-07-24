@@ -6,7 +6,7 @@ import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
 import java.io.FileNotFoundException;
 
 public class MapLoaderImpl implements MapLoader{
-    private MapFileReader mapFileReader;
+    private final MapFileReader mapFileReader;
 
     public MapLoaderImpl(MapFileReader mapFileReader) {
         this.mapFileReader = mapFileReader;
