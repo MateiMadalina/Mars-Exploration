@@ -29,13 +29,13 @@ public class Map {
     }
 
     public String getByCoordinate(Coordinate coordinate) {
-        return representation[coordinate.X()][coordinate.Y()];
+        return representation[coordinate.x()][coordinate.y()];
     }
 
     public boolean isEmpty(Coordinate coordinate) {
-        return representation[coordinate.X()][coordinate.Y()] == null
-                || representation[coordinate.X()][coordinate.Y()].isEmpty()
-                || representation[coordinate.X()][coordinate.Y()].equals(" ");
+        return representation[coordinate.x()][coordinate.y()] == null
+                || representation[coordinate.y()][coordinate.y()].isEmpty()
+                || representation[coordinate.y()][coordinate.y()].equals(" ");
     }
 
     @Override
