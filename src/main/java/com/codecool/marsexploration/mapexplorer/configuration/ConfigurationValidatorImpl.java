@@ -4,7 +4,6 @@ import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCa
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
