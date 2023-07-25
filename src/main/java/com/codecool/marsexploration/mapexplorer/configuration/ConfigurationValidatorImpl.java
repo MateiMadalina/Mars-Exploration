@@ -17,9 +17,9 @@ public class ConfigurationValidatorImpl implements ConfigurationValidator{
     }
 
     @Override
-    public boolean validate(MapModel map, Coordinate coordinate) {
-        return landingSpotIsAvailable(map, coordinate)
-                && availableSpotNextToShip(map, coordinate)
+    public boolean validate(MapModel map) {
+        return landingSpotIsAvailable(map, explorationConfig.landingSpot())
+                && availableSpotNextToShip(map, explorationConfig.landingSpot())
                 && mapFileNotEmpty(map)
                 && atLeastOneResourceSpecifiedInSymbolList()
                 && stepsAmountGreaterThanZero();
