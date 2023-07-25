@@ -47,26 +47,58 @@ class CoordinateCalculatorImplTest {
         Coordinate coordinate = new Coordinate(6, 6);
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
         List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
+        System.out.println(coordinateList);
 
         assertEquals(8, coordinateList.size());
     }
 
     @Test
-    void getAdjacentCoordinatesReturns3Coordinates() throws FileNotFoundException {
+    void getAdjacentCoordinatesReturns3CoordinatesForUpperLeftCorner() throws FileNotFoundException {
         Coordinate coordinate = new Coordinate(0, 0);
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
-        List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
-
-        assertEquals(3, coordinateList.size());
-    }
-
-    @Test
-    void getAdjacentCoordinateReturns3Coordinates() throws FileNotFoundException {
-        Coordinate coordinate = new Coordinate(32, 32);
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
         List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
         System.out.println(coordinateList);
 
         assertEquals(3, coordinateList.size());
+    }
+
+    @Test
+    void getAdjacentCoordinatesReturns3CoordinatesForLowerRightCorner() throws FileNotFoundException {
+        Coordinate coordinate = new Coordinate(31, 31);
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+        List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
+        System.out.println(coordinateList);
+
+        assertEquals(3, coordinateList.size());
+    }
+
+    @Test
+    void getAdjacentCoordinatesReturns3CoordinatesForUpperRightCorner() throws FileNotFoundException {
+        Coordinate coordinate = new Coordinate(0, 31);
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+        List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
+        System.out.println(coordinateList);
+
+        assertEquals(3, coordinateList.size());
+    }
+
+    @Test
+    void getAdjacentCoordinatesReturns3CoordinatesForLowerLeftCorner() throws FileNotFoundException {
+        Coordinate coordinate = new Coordinate(31, 0);
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+        List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
+        System.out.println(coordinateList);
+
+        assertEquals(3, coordinateList.size());
+    }
+
+    @Test
+    void getAdjacentCoordinatesReturns3CoordinatesForLowerCoordinate() throws FileNotFoundException {
+        Coordinate coordinate = new Coordinate(31, 30);
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+        List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
+        System.out.println(coordinateList);
+
+        assertEquals(5, coordinateList.size());
     }
 }
