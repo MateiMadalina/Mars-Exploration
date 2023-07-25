@@ -2,18 +2,18 @@ package com.codecool.marsexploration.mapexplorer.rovers.placer;
 
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 
 import java.util.List;
 import java.util.Random;
 
 public class RoverDeployer {
 
-    private final Map map;
+    private final MapModel map;
     private final CoordinateCalculator coordinateCalculator;
 
 
-    public RoverDeployer(Map map, CoordinateCalculator coordinateCalculator) {
+    public RoverDeployer(MapModel map, CoordinateCalculator coordinateCalculator) {
         this.map = map;
         this.coordinateCalculator = coordinateCalculator;
     }

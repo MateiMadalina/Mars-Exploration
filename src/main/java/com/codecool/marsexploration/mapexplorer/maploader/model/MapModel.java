@@ -1,10 +1,10 @@
 package com.codecool.marsexploration.mapexplorer.maploader.model;
 
-public class Map {
+public class MapModel {
     private String[][] representation;
     private boolean successfullyGenerated;
 
-    public Map(String[][] representation, boolean successfullyGenerated) {
+    public MapModel(String[][] representation, boolean successfullyGenerated) {
         this.representation = representation;
         this.successfullyGenerated = successfullyGenerated;
     }

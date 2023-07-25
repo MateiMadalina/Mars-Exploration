@@ -1,18 +1,13 @@
 package com.codecool.marsexploration.mapexplorer.spaceship.placer;
 
-import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
-import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculatorImpl;
-import com.codecool.marsexploration.mapexplorer.maploader.MapLoader;
-import com.codecool.marsexploration.mapexplorer.maploader.MapLoaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 class SpaceshipDeploymentTest {
 
@@ -25,7 +20,7 @@ class SpaceshipDeploymentTest {
                 {"#", " ", "#"}
         };
 
-        Map fakeMap = new Map(fakeMapRepresentation, true);
+        MapModel fakeMap = new MapModel(fakeMapRepresentation, true);
         SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(fakeMap);
         Coordinate spaceShip = new Coordinate(0,0);
         spaceshipDeployment.place(spaceShip);
@@ -40,7 +35,7 @@ class SpaceshipDeploymentTest {
                 {"#", " ", "#"}
         };
 
-        Map fakeMap = new Map(fakeMapRepresentation, true);
+        MapModel fakeMap = new MapModel(fakeMapRepresentation, true);
         SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(fakeMap);
         Coordinate spaceShip = new Coordinate(0,0);
         spaceshipDeployment.place(spaceShip);

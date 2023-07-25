@@ -2,7 +2,7 @@ package com.codecool.marsexploration.mapexplorer.configuration;
 
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +17,7 @@ public class ConfigurationValidatorImpl implements ConfigurationValidator{
     }
 
     @Override
-    public boolean validate(Map map, Coordinate coordinate) {
+    public boolean validate(MapModel map, Coordinate coordinate) {
         return landingSpotIsAvailable(map, coordinate)
                 && availableSpotNextToShip(map, coordinate)
                 && mapFileNotEmpty(map)
@@ -25,19 +25,19 @@ public class ConfigurationValidatorImpl implements ConfigurationValidator{
                 && stepsAmountGreaterThanZero();
     }
 
-    private boolean landingSpotIsAvailable(Map map, Coordinate coordinate) {
+    private boolean landingSpotIsAvailable(MapModel map, Coordinate coordinate) {
         String[][] mapRepresentation = map.getRepresentation();
         return Objects.equals(mapRepresentation[coordinate.x()][coordinate.y()], " ");
     }
 
-    private boolean availableSpotNextToShip(Map map, Coordinate coordinate) {
+    private boolean availableSpotNextToShip(MapModel map, Coordinate coordinate) {
         String[][] mapRepresentation = map.getRepresentation();
         List<Coordinate> allCoordinates = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
 
        return allCoordinates.stream().anyMatch(coord -> mapRepresentation[coord.x()][coord.y()].equals(" "));
     }
 
-    private boolean mapFileNotEmpty (Map map) {
+    private boolean mapFileNotEmpty (MapModel map) {
         String mapString = map.toString().trim();
         return !mapString.isEmpty();
     }
