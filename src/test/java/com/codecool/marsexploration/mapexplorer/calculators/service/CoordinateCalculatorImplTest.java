@@ -59,4 +59,14 @@ class CoordinateCalculatorImplTest {
 
         assertEquals(3, coordinateList.size());
     }
+
+    @Test
+    void getAdjacentCoordinateReturns3Coordinates() throws FileNotFoundException {
+        Coordinate coordinate = new Coordinate(32, 32);
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+        List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
+        System.out.println(coordinateList);
+
+        assertEquals(3, coordinateList.size());
+    }
 }
