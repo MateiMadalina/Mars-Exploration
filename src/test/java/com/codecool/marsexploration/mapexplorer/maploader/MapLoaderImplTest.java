@@ -2,7 +2,7 @@ package com.codecool.marsexploration.mapexplorer.maploader;
 
 import com.codecool.marsexploration.mapexplorer.input.service.MapFileReader;
 import com.codecool.marsexploration.mapexplorer.input.service.MapFileReaderImpl;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -18,7 +18,7 @@ class MapLoaderImplTest {
         int expectedRows = 32;
         int expectedColumns = 32;
 
-        Map generatedMap = mapLoader.load(mapFile);
+        MapModel generatedMap = mapLoader.load(mapFile);
         int actualRows = generatedMap.getRepresentation().length;
         int actualColumns = generatedMap.getRepresentation()[0].length;
 
@@ -33,7 +33,7 @@ class MapLoaderImplTest {
         int expectedMineralNumber = 10;
         int expectedWaterNumber = 10;
 
-        Map generatedMap = mapLoader.load(mapFile);
+        MapModel generatedMap = mapLoader.load(mapFile);
         String stringMap = generatedMap.toString();
 
         int mountainCount = stringMap.length() - stringMap.replaceAll("#", "").length();

@@ -1,7 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.maploader;
 
 import com.codecool.marsexploration.mapexplorer.input.service.MapFileReader;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 
 import java.io.FileNotFoundException;
 
@@ -13,10 +13,10 @@ public class MapLoaderImpl implements MapLoader{
     }
 
     @Override
-    public Map load(String mapFile) throws FileNotFoundException {
+    public MapModel load(String mapFile) throws FileNotFoundException {
         String mapString = mapFileReader.readMapFile(mapFile);
         String[][] mapRepresentation = populate2DArray(32, 32, mapString);
-        return new Map(mapRepresentation, true);
+        return new MapModel(mapRepresentation, true);
     }
 
     private static String[][] populate2DArray(int rows, int columns, String dataString) {

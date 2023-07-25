@@ -1,7 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.calculators.service;
 
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,19 +10,19 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class CoordinateCalculatorImpl implements CoordinateCalculator {
-    private Map map;
+    private MapModel map;
 
-    public CoordinateCalculatorImpl(Map map) {
+    public CoordinateCalculatorImpl(MapModel map) {
         this.map = map;
     }
 
-    public Coordinate getRandomLandingCoordinate(Map map) {
+    public Coordinate getRandomLandingCoordinate(MapModel map) {
         Random random = new Random();
         List<Coordinate> emptySpaces = getEmptySpacesCoordinates(map);
         return emptySpaces.get(random.nextInt(emptySpaces.size()));
     }
 
-    private List<Coordinate> getEmptySpacesCoordinates(Map map) {
+    private List<Coordinate> getEmptySpacesCoordinates(MapModel map) {
         String[][] mapRepresentation = map.getRepresentation();
         List<Coordinate> emptySpaces = new ArrayList<>();
 

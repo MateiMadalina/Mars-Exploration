@@ -3,19 +3,19 @@ package com.codecool.marsexploration.mapexplorer.expeditionDeployer;
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.configuration.ConfigurationValidator;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
 import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployment;
 
 public class MapExpeditionDeployer {
-    private final Map map;
+    private final MapModel map;
     private final RoverDeployer roverDeployer;
     private final SpaceshipDeployment spaceshipDeployment;
     private final CoordinateCalculator calculator;
     private final ConfigurationValidator validator;
 
 
-    public MapExpeditionDeployer(Map map, RoverDeployer roverDeployer, SpaceshipDeployment spaceshipDeployment,
+    public MapExpeditionDeployer(MapModel map, RoverDeployer roverDeployer, SpaceshipDeployment spaceshipDeployment,
                                  CoordinateCalculator calculator, ConfigurationValidator validator) {
         this.map = map;
         this.roverDeployer = roverDeployer;

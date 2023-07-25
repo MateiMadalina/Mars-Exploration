@@ -1,9 +1,9 @@
 package com.codecool.marsexploration.mapexplorer.maploader;
 
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 
 import java.io.FileNotFoundException;
 
 public interface MapLoader {
-    Map load(String mapFile) throws FileNotFoundException;
+    MapModel load(String mapFile) throws FileNotFoundException;
 }
