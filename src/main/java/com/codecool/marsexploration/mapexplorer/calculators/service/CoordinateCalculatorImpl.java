@@ -19,7 +19,6 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
     public Coordinate getRandomLandingCoordinate(Map map) {
         Random random = new Random();
         List<Coordinate> emptySpaces = getEmptySpacesCoordinates(map);
-        System.out.println(emptySpaces);
         return emptySpaces.get(random.nextInt(emptySpaces.size()));
     }
 
@@ -40,8 +39,8 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
     public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {
         int xStart = coordinate.x() > 0 ? coordinate.x() - 1 : coordinate.x();
         int yStart = coordinate.y() > 0 ? coordinate.y() - 1 : coordinate.y();
-        int xFinal = xStart == dimension ? xStart + dimension  : xStart + dimension + 1;
-        int yFinal = yStart == dimension ? yStart + dimension  : yStart + dimension + 1;
+        int xFinal = xStart == map.getDimension() - 1 ? xStart : xStart > 0 ? xStart + dimension  : xStart ;
+        int yFinal = yStart == map.getDimension() - 1 ? yStart : yStart > 0 ? yStart + dimension  : yStart ;
 
         List<Coordinate> allCoordinates = (List<Coordinate>) getCoordinates(xStart, yStart, xFinal, yFinal);
         allCoordinates.remove(coordinate);

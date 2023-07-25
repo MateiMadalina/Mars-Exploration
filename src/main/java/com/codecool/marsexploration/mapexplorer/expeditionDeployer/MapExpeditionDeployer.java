@@ -30,16 +30,15 @@ public class MapExpeditionDeployer {
             spaceshipCoordinate = calculator.getRandomLandingCoordinate(map);
         }
         Coordinate roverCoordinate = roverDeployer.getPlacement(spaceshipCoordinate);
-        validateRoverCoordinate(roverCoordinate,spaceshipCoordinate);
+        roverCoordinate = validateRoverCoordinate(roverCoordinate,spaceshipCoordinate);
         spaceshipDeployment.place(spaceshipCoordinate);
         roverDeployer.place(roverCoordinate);
     }
 
-    private void validateRoverCoordinate(Coordinate roverCoordinate , Coordinate spaceshipCoordinate){
-        System.out.println("Rover: " + roverCoordinate);
-        System.out.println("Spaceship: " + spaceshipCoordinate);
+    private Coordinate validateRoverCoordinate(Coordinate roverCoordinate , Coordinate spaceshipCoordinate){
         while(!map.getRepresentation()[roverCoordinate.x()][roverCoordinate.y()].equals(" ")){
             roverCoordinate = roverDeployer.getPlacement(spaceshipCoordinate);
         }
+        return roverCoordinate;
     }
 }
