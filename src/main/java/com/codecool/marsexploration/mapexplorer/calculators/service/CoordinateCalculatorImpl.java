@@ -4,7 +4,6 @@ import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -17,11 +16,24 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
         this.map = map;
     }
 
-    public Coordinate getRandomLandingCoordinate(int dimension) {
+    public Coordinate getRandomLandingCoordinate(Map map) {
         Random random = new Random();
-        int mapDimension = map.getDimension();
-        return new Coordinate(random.nextInt(mapDimension - dimension),
-                random.nextInt(mapDimension - dimension));
+        List<Coordinate> emptySpaces = getEmptySpacesCoordinates(map);
+        return emptySpaces.get(random.nextInt(emptySpaces.size()));
+    }
+
+    private List<Coordinate> getEmptySpacesCoordinates(Map map) {
+        String[][] mapRepresentation = map.getRepresentation();
+        List<Coordinate> emptySpaces = new ArrayList<>();
+
+        for (int i = 0; i < mapRepresentation.length; i++) {
+            for (int j = 0; j < mapRepresentation[i].length; j++) {
+                if (mapRepresentation[i][j].equals(" ")) {
+                    emptySpaces.add(new Coordinate(i, j));
+                }
+            }
+        }
+        return emptySpaces;
     }
 
     public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {

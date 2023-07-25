@@ -68,12 +68,13 @@ class ConfigurationValidatorImplTest {
     @Test
     void emptyMapReturnsFalse() throws FileNotFoundException {
         Coordinate coordinate = new Coordinate(16, 28);
+        String emptyMapFile = "src/main/resources/exploration-empty.map";
         ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(
-                "src/main/resources/exploration-empty.map", coordinate, symbols, 30);
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load("src/main/resources/exploration-empty.map"));
+                emptyMapFile, coordinate, symbols, 30);
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(emptyMapFile));
         ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
 
-        assertFalse(configurationValidator.validate(mapLoader.load("src/main/resources/exploration-empty.map"), coordinate));
+        assertFalse(configurationValidator.validate(mapLoader.load(emptyMapFile), coordinate));
     }
 
     @Test

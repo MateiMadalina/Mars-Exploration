@@ -28,23 +28,23 @@ class MapLoaderImplTest {
 
     @Test
     void loadReturnsExpectedAmountsOfSymbols() throws FileNotFoundException {
-        int mountains = 70;
-        int pits = 17;
-        int minerals = 10;
-        int water = 10;
+        int expectedMountainNumber = 70;
+        int expectedPitNumber = 17;
+        int expectedMineralNumber = 10;
+        int expectedWaterNumber = 10;
 
         Map generatedMap = mapLoader.load(mapFile);
         String stringMap = generatedMap.toString();
 
-        int mountainCounter = stringMap.length() - stringMap.replaceAll("#", "").length();
-        int pitCounter = stringMap.length() - stringMap.replaceAll("&", "").length();
-        int mineralsCounter = stringMap.length() - stringMap.replaceAll("\\*", "").length();
-        int waterCounter = stringMap.length() - stringMap.replaceAll("%", "").length();
+        int mountainCount = stringMap.length() - stringMap.replaceAll("#", "").length();
+        int pitCount = stringMap.length() - stringMap.replaceAll("&", "").length();
+        int mineralsCount = stringMap.length() - stringMap.replaceAll("\\*", "").length();
+        int waterCount = stringMap.length() - stringMap.replaceAll("%", "").length();
 
-        assertEquals(mountains, mountainCounter);
-        assertEquals(pits, pitCounter);
-        assertEquals(minerals, mineralsCounter);
-        assertEquals(water, waterCounter);
+        assertEquals(expectedMountainNumber, mountainCount);
+        assertEquals(expectedPitNumber, pitCount);
+        assertEquals(expectedMineralNumber, mineralsCount);
+        assertEquals(expectedWaterNumber, waterCount);
     }
 
     @Test
