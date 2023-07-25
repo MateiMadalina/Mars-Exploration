@@ -19,7 +19,8 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
     public Coordinate getRandomLandingCoordinate(MapModel map) {
         Random random = new Random();
         List<Coordinate> emptySpaces = getEmptySpacesCoordinates(map);
-        return emptySpaces.get(random.nextInt(emptySpaces.size()));
+        List<Coordinate> possibleSpots = getAllPossiblePlacementForSpaceshipWithEmptySpaceAdjancent(emptySpaces);
+        return possibleSpots.get(random.nextInt(possibleSpots.size()));
     }
 
     private List<Coordinate> getEmptySpacesCoordinates(MapModel map) {
@@ -36,22 +37,58 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
         return emptySpaces;
     }
 
-    public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {
-        int xStart = coordinate.x() > 0 ? coordinate.x() - 1 : coordinate.x();
-        int yStart = coordinate.y() > 0 ? coordinate.y() - 1 : coordinate.y();
-        int xFinal = xStart == map.getDimension() - 1 ? xStart : xStart > 0 ? xStart + dimension  : xStart ;
-        int yFinal = yStart == map.getDimension() - 1 ? yStart : yStart > 0 ? yStart + dimension  : yStart ;
+    private List<Coordinate> getAllPossiblePlacementForSpaceshipWithEmptySpaceAdjancent (List<Coordinate> emptySpaces){
+        List<Coordinate> possibleSpots = new ArrayList<>();
 
-        List<Coordinate> allCoordinates = (List<Coordinate>) getCoordinates(xStart, yStart, xFinal, yFinal);
-        allCoordinates.remove(coordinate);
-        return allCoordinates;
+        for (Coordinate emptySpace : emptySpaces) {
+            List<Coordinate> adjacentCoordinates = (List<Coordinate>) getAdjacentCoordinates(emptySpace,1);
+            if (adjacentCoordinates.stream().anyMatch(coordinate -> {
+                String content = map.getRepresentation()[coordinate.x()][coordinate.y()];
+                return content.equals(" ");
+            })) {
+                possibleSpots.add(emptySpace);
+            }
+        }
+        return possibleSpots;
     }
 
-    private Iterable<Coordinate> getCoordinates(int xStart, int yStart, int xFinal, int yFinal) {
-        return IntStream.rangeClosed(xStart, xFinal)
-                .boxed()
-                .flatMap(x -> IntStream.rangeClosed(yStart, yFinal)
-                        .mapToObj(y -> new Coordinate(x, y)))
-                .collect(Collectors.toList());
+//    public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {
+//        int xStart = coordinate.x() > 0 ? coordinate.x() - 1 : coordinate.x();
+//        int yStart = coordinate.y() > 0 ? coordinate.y() - 1 : coordinate.y();
+//        int xFinal = xStart == map.getDimension() - 1 ? xStart : xStart > 0 ? xStart + dimension  : xStart ;
+//        int yFinal = yStart == map.getDimension() - 1 ? yStart : yStart > 0 ? yStart + dimension  : yStart ;
+//
+//        List<Coordinate> allCoordinates = (List<Coordinate>) getCoordinates(xStart, yStart, xFinal, yFinal);
+//        allCoordinates.remove(coordinate);
+//        return allCoordinates;
+//    }
+//
+//    private Iterable<Coordinate> getCoordinates(int xStart, int yStart, int xFinal, int yFinal) {
+//        return IntStream.rangeClosed(xStart, xFinal)
+//                .boxed()
+//                .flatMap(x -> IntStream.rangeClosed(yStart, yFinal)
+//                        .mapToObj(y -> new Coordinate(x, y)))
+//                .collect(Collectors.toList());
+//    }
+
+
+    public List<Coordinate> getAdjacentCoordinates(Coordinate coordinate,int dimension) {
+        int x = coordinate.x();
+        int y = coordinate.y();
+
+        int xStart = Math.max(0, x - dimension);
+        int yStart = Math.max(0, y - dimension);
+        int xFinal = Math.min(map.getDimension() - 1, x + dimension);
+        int yFinal = Math.min(map.getDimension() - 1, y + dimension);
+
+        List<Coordinate> allCoordinates = new ArrayList<>();
+        for (int i = xStart; i <= xFinal; i++) {
+            for (int j = yStart; j <= yFinal; j++) {
+                if (i != x || j != y) {
+                    allCoordinates.add(new Coordinate(i, j));
+                }
+            }
+        }
+        return allCoordinates;
     }
 }
