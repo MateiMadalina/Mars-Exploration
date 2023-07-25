@@ -24,9 +24,9 @@ class MapExpeditionDeployerTest {
     CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(fakeMap);
     RoverDeployer roverDeployer = new RoverDeployer(fakeMap,coordinateCalculator);
     SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(fakeMap);
-    ExplorationSimulationConfiguration explorationSimulationConfiguration = new ExplorationSimulationConfiguration(fakeMap.toString(),new Coordinate(0,0), List.of("#","*","%"),5);
-    ConfigurationValidator validator = new ConfigurationValidatorImpl(coordinateCalculator,explorationSimulationConfiguration);
-    MapExpeditionDeployer mapExpeditionDeployer = new MapExpeditionDeployer(fakeMap,roverDeployer,spaceshipDeployment,coordinateCalculator,validator);
+    Coordinate spaceshipCoordinate = coordinateCalculator.getRandomLandingCoordinate(fakeMap);
+    ExplorationSimulationConfiguration explorationSimulationConfig = new ExplorationSimulationConfiguration(" ",spaceshipCoordinate,List.of("#","*"),5);
+    MapExpeditionDeployer mapExpeditionDeployer = new MapExpeditionDeployer(fakeMap,roverDeployer,spaceshipDeployment,explorationSimulationConfig);
 
     @Test
     void sendExpedition() {

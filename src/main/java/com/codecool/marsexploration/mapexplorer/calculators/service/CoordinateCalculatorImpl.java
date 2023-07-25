@@ -19,7 +19,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
     public Coordinate getRandomLandingCoordinate(MapModel map) {
         Random random = new Random();
         List<Coordinate> emptySpaces = getEmptySpacesCoordinates(map);
-        List<Coordinate> possibleSpots = getAllPossiblePlacementForSpaceshipWithEmptySpaceAdjancent(emptySpaces);
+        List<Coordinate> possibleSpots = getAllPossiblePlacementsForSpaceshipWithEmptySpaceAdjacent(emptySpaces);
         return possibleSpots.get(random.nextInt(possibleSpots.size()));
     }
 
@@ -37,7 +37,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
         return emptySpaces;
     }
 
-    private List<Coordinate> getAllPossiblePlacementForSpaceshipWithEmptySpaceAdjancent (List<Coordinate> emptySpaces){
+    private List<Coordinate> getAllPossiblePlacementsForSpaceshipWithEmptySpaceAdjacent (List<Coordinate> emptySpaces){
         List<Coordinate> possibleSpots = new ArrayList<>();
 
         for (Coordinate emptySpace : emptySpaces) {
