@@ -6,7 +6,7 @@ import com.codecool.marsexploration.mapexplorer.configuration.ConfigurationValid
 import com.codecool.marsexploration.mapexplorer.configuration.ConfigurationValidatorImpl;
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
 import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployment;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ class MapExpeditionDeployerTest {
             {" ", "*", "%"},
             {"#", " ", "#"}
     };
-    Map fakeMap = new Map(fakeMapRepresentation, true);
+    MapModel fakeMap = new MapModel(fakeMapRepresentation, true);
     CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(fakeMap);
     RoverDeployer roverDeployer = new RoverDeployer(fakeMap,coordinateCalculator);
     SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(fakeMap);

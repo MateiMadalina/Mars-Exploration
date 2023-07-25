@@ -3,8 +3,7 @@ package com.codecool.marsexploration.mapexplorer.rovers.placer;
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
-import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployment;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -18,7 +17,7 @@ class RoverDeployerTest {
             {"#", " ", "#"}
     };
 
-    Map fakeMap = new Map(fakeMapRepresentation, true);
+    MapModel fakeMap = new MapModel(fakeMapRepresentation, true);
     Coordinate spaceShip = new Coordinate(0,0);
     CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(fakeMap);
 

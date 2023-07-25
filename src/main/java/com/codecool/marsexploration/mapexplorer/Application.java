@@ -5,7 +5,7 @@ import com.codecool.marsexploration.mapexplorer.input.service.MapFileReaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.MapLoader;
 import com.codecool.marsexploration.mapexplorer.maploader.MapLoaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Map;
+import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 
 import java.io.FileNotFoundException;
 
@@ -19,7 +19,7 @@ public class Application {
         MapFileReader mapFileReader = new MapFileReaderImpl();
 
         MapLoader mapLoader = new MapLoaderImpl(mapFileReader);
-        Map newMap = mapLoader.load(mapFile);
+        MapModel newMap = mapLoader.load(mapFile);
         System.out.println(newMap.toString());
 
 
