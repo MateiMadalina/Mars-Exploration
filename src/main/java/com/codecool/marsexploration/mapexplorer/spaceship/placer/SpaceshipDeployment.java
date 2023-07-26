@@ -10,7 +10,7 @@ public class SpaceshipDeployment {
         this.map = map;
     }
 
-    public void place( Coordinate spaceShipCoordinate){
+    public void place(Coordinate spaceShipCoordinate){
         String[][] mapRepresentation = map.getRepresentation();
         mapRepresentation[spaceShipCoordinate.x()][spaceShipCoordinate.y()] = "$";
     }

@@ -34,9 +34,14 @@ public class MapExpeditionDeployer {
     }
 
     private Coordinate validateRoverCoordinate(Coordinate roverCoordinate , Coordinate spaceshipCoordinate){
+        System.out.println(roverCoordinate);
         while(!map.getRepresentation()[roverCoordinate.x()][roverCoordinate.y()].equals(" ")){
             roverCoordinate = roverDeployer.getPlacement(spaceshipCoordinate);
         }
         return roverCoordinate;
+    }
+
+    public ExplorationSimulationConfiguration getExplorationSimulationConfig() {
+        return explorationSimulationConfig;
     }
 }
