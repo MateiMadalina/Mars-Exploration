@@ -37,11 +37,11 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
         return emptySpaces;
     }
 
-    private List<Coordinate> getAllPossiblePlacementsForSpaceshipWithEmptySpaceAdjacent (List<Coordinate> emptySpaces){
+    public List<Coordinate> getAllPossiblePlacementsForSpaceshipWithEmptySpaceAdjacent(List<Coordinate> emptySpaces) {
         List<Coordinate> possibleSpots = new ArrayList<>();
 
         for (Coordinate emptySpace : emptySpaces) {
-            List<Coordinate> adjacentCoordinates = (List<Coordinate>) getAdjacentCoordinates(emptySpace,1);
+            List<Coordinate> adjacentCoordinates = (List<Coordinate>) getAdjacentCoordinates(emptySpace, 1);
             if (adjacentCoordinates.stream().anyMatch(coordinate -> {
                 String content = map.getRepresentation()[coordinate.x()][coordinate.y()];
                 return content.equals(" ");
@@ -52,15 +52,36 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
         return possibleSpots;
     }
 
+    public List<Coordinate> gatAllPossiblePlacementsForRoverWithEmptySpaceAdjacent(List<Coordinate> spaces){
+        return spaces.stream().filter(coordinate -> map.getRepresentation()[coordinate.x()][coordinate.y()].equals(" ")).toList();
+    }
+
     public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {
         int xStart = coordinate.x() > 0 ? coordinate.x() - 1 : coordinate.x();
         int yStart = coordinate.y() > 0 ? coordinate.y() - 1 : coordinate.y();
-        int xFinal = xStart == map.getDimension() - 2 ? xStart + dimension : xStart > 0 ? xStart + dimension + 1  : xStart + dimension ;
-        int yFinal = yStart == map.getDimension() - 2 ? yStart + dimension : yStart > 0 ? yStart + dimension + 1  : yStart + dimension;
+        int xFinal = xStart == map.getDimension() - 2 ? xStart + dimension : xStart > 0 ? xStart + dimension + 1 : xStart + dimension;
+        int yFinal = yStart == map.getDimension() - 2 ? yStart + dimension : yStart > 0 ? yStart + dimension + 1 : yStart + dimension;
 
         List<Coordinate> allCoordinates = (List<Coordinate>) getCoordinates(xStart, yStart, xFinal, yFinal);
         allCoordinates.remove(coordinate);
         return allCoordinates;
+    }
+
+    public Iterable<Coordinate> getAdjacentCoordinatesBasedOnSight(Coordinate coordinate, int sight) {
+        int dimension = map.getDimension() - 1;
+        int xStart = coordinate.x() - sight <= 0 ? 0 : coordinate.x() - sight;
+        int yStart = coordinate.y() - sight <= 0 ? 0 : coordinate.y() - sight;
+        int xFinal = coordinate.x() + sight >= dimension ? dimension : coordinate.x() + sight;
+        int yFinal = coordinate.y() + sight >= dimension ? dimension : coordinate.y() + sight;
+
+        List<Coordinate> allCoordinates = (List<Coordinate>) getCoordinates(xStart, yStart, xFinal, yFinal);
+        allCoordinates.remove(coordinate);
+        return allCoordinates;
+
+//        int xStart = Math.max(coordinate.x() - sight, 0);
+//        int yStart = Math.max(coordinate.y() - sight, 0);
+//        int xFinal = Math.min(coordinate.x() + sight, dimension);
+//        int yFinal = Math.min(coordinate.y() + sight, dimension);
     }
 
     private Iterable<Coordinate> getCoordinates(int xStart, int yStart, int xFinal, int yFinal) {
