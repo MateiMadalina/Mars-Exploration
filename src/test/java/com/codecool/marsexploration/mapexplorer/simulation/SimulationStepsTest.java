@@ -4,6 +4,8 @@ import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCa
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
 import com.codecool.marsexploration.mapexplorer.expeditionDeployer.MapExpeditionDeployer;
+import com.codecool.marsexploration.mapexplorer.logger.ConsoleLogger;
+import com.codecool.marsexploration.mapexplorer.logger.Logger;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.Rover;
@@ -22,6 +24,7 @@ import static org.mockito.Mockito.when;
 
 class SimulationStepsTest {
     private final List<String> symbols = List.of("#", "%", "*", "&");
+    private final Logger consoleLogger = new ConsoleLogger();
     private final String[][] fakeRepresentation =
             {
                     {" ", "#", "#", "#", " ", " ", " ", " ", " "},
@@ -51,8 +54,8 @@ class SimulationStepsTest {
 
         MapExpeditionDeployer deployer = new MapExpeditionDeployer(mapModel, roverDeployer, spaceshipDeployment, explorationConfig);
 
-        Simulation simulation = new Simulation(0, 100, rover, spaceshipCoordinate, mapModel, symbols, resourcesLocation);
-        SimulationSteps simulationSteps = new SimulationSteps(calculator, simulation, deployer);
+        Simulation simulation = new Simulation(100, rover, spaceshipCoordinate, mapModel, symbols);
+        SimulationSteps simulationSteps = new SimulationSteps(calculator, simulation, deployer, consoleLogger);
 
         simulationSteps.roverMovementRoutine();
     }
