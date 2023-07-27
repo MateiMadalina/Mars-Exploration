@@ -57,31 +57,15 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
     }
 
     public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {
-        int xStart = coordinate.x() > 0 ? coordinate.x() - 1 : coordinate.x();
-        int yStart = coordinate.y() > 0 ? coordinate.y() - 1 : coordinate.y();
-        int xFinal = xStart == map.getDimension() - 2 ? xStart + dimension : xStart > 0 ? xStart + dimension + 1 : xStart + dimension;
-        int yFinal = yStart == map.getDimension() - 2 ? yStart + dimension : yStart > 0 ? yStart + dimension + 1 : yStart + dimension;
+        int mapDimension = map.getDimension() - 1;
+        int xStart = coordinate.x() - dimension <= 0 ? 0 : coordinate.x() - dimension;
+        int yStart = coordinate.y() - dimension <= 0 ? 0 : coordinate.y() - dimension;
+        int xFinal = coordinate.x() + dimension >= mapDimension ? mapDimension : coordinate.x() + dimension;
+        int yFinal = coordinate.y() + dimension >= mapDimension ? mapDimension : coordinate.y() + dimension;
 
         List<Coordinate> allCoordinates = (List<Coordinate>) getCoordinates(xStart, yStart, xFinal, yFinal);
         allCoordinates.remove(coordinate);
         return allCoordinates;
-    }
-
-    public Iterable<Coordinate> getAdjacentCoordinatesBasedOnSight(Coordinate coordinate, int sight) {
-        int dimension = map.getDimension() - 1;
-        int xStart = coordinate.x() - sight <= 0 ? 0 : coordinate.x() - sight;
-        int yStart = coordinate.y() - sight <= 0 ? 0 : coordinate.y() - sight;
-        int xFinal = coordinate.x() + sight >= dimension ? dimension : coordinate.x() + sight;
-        int yFinal = coordinate.y() + sight >= dimension ? dimension : coordinate.y() + sight;
-
-        List<Coordinate> allCoordinates = (List<Coordinate>) getCoordinates(xStart, yStart, xFinal, yFinal);
-        allCoordinates.remove(coordinate);
-        return allCoordinates;
-
-//        int xStart = Math.max(coordinate.x() - sight, 0);
-//        int yStart = Math.max(coordinate.y() - sight, 0);
-//        int xFinal = Math.min(coordinate.x() + sight, dimension);
-//        int yFinal = Math.min(coordinate.y() + sight, dimension);
     }
 
     private Iterable<Coordinate> getCoordinates(int xStart, int yStart, int xFinal, int yFinal) {

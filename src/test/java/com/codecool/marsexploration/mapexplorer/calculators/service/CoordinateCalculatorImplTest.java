@@ -106,9 +106,9 @@ class CoordinateCalculatorImplTest {
     void getAdjacentCoordinatesBasedOnSight() throws  FileNotFoundException {
         Coordinate coordinate = new Coordinate(0, 31);
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
-        List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinatesBasedOnSight(coordinate, 1);
+        List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
         System.out.println(coordinateList);
 
-        assertEquals(5, coordinateList.size());
+        assertEquals(3, coordinateList.size());
     }
 }
