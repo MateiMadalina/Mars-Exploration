@@ -14,7 +14,6 @@ import java.util.List;
 
 import static org.mockito.Mockito.mock;
 
-
 class MapExpeditionDeployerTest {
     String[][] fakeMapRepresentation = {
             {" ", "#", "&"},

@@ -5,6 +5,7 @@ import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCa
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
 import com.codecool.marsexploration.mapexplorer.expeditionDeployer.MapExpeditionDeployer;
 import com.codecool.marsexploration.mapexplorer.logger.ConsoleLogger;
+import com.codecool.marsexploration.mapexplorer.logger.FileLogger;
 import com.codecool.marsexploration.mapexplorer.logger.Logger;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
@@ -18,13 +19,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class SimulationStepsTest {
     private final List<String> symbols = List.of("#", "%", "*", "&");
     private final Logger consoleLogger = new ConsoleLogger();
+    private final Logger fileLogger = new FileLogger("src/main/resources/exploration-outcome.txt");
     private final String[][] fakeRepresentation =
             {
                     {" ", "#", "#", "#", " ", " ", " ", " ", " "},
@@ -55,7 +56,7 @@ class SimulationStepsTest {
         MapExpeditionDeployer deployer = new MapExpeditionDeployer(mapModel, roverDeployer, spaceshipDeployment, explorationConfig);
 
         Simulation simulation = new Simulation(100, rover, spaceshipCoordinate, mapModel, symbols);
-        SimulationSteps simulationSteps = new SimulationSteps(calculator, simulation, deployer, consoleLogger);
+        SimulationSteps simulationSteps = new SimulationSteps(simulation, deployer, consoleLogger, fileLogger);
 
         simulationSteps.roverMovementRoutine();
     }

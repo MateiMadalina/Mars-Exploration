@@ -1,6 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.outcome.service;
 
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.logger.Logger;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.simulation.Simulation;
 
@@ -13,10 +14,12 @@ public class LackOfResourcesAnalyzer implements Analyzer{
     private final Simulation simulation;
 
     private final CoordinateCalculator coordinateCalculator;
+    private Logger fileLogger;
 
-    public LackOfResourcesAnalyzer(Simulation simulation, CoordinateCalculator coordinateCalculator) {
+    public LackOfResourcesAnalyzer(Simulation simulation, CoordinateCalculator coordinateCalculator, Logger fileLogger) {
         this.simulation = simulation;
         this.coordinateCalculator = coordinateCalculator;
+        this.fileLogger = fileLogger;
     }
 
     @Override
@@ -43,6 +46,7 @@ public class LackOfResourcesAnalyzer implements Analyzer{
                 .count();
 
         System.out.println("Water pockets near spaceship: " + pocketsOfWater);
+        fileLogger.log("Water pockets near spaceship: " + pocketsOfWater);
 
         return pocketsOfWater >= expectedPocketsOfWaterNearSpaceship;
     }

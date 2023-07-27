@@ -5,9 +5,7 @@ import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
 
 class SpaceshipDeploymentTest {
 
@@ -24,7 +22,7 @@ class SpaceshipDeploymentTest {
         SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(fakeMap);
         Coordinate spaceShip = new Coordinate(0,0);
         spaceshipDeployment.place(spaceShip);
-        assertTrue(fakeMapRepresentation[spaceShip.x()][spaceShip.y()].equals("$"));
+        assertEquals("$", fakeMapRepresentation[spaceShip.x()][spaceShip.y()]);
     }
 
     @Test
@@ -39,6 +37,6 @@ class SpaceshipDeploymentTest {
         SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(fakeMap);
         Coordinate spaceShip = new Coordinate(0,0);
         spaceshipDeployment.place(spaceShip);
-        assertFalse(fakeMapRepresentation[spaceShip.x()][spaceShip.y()].equals(" "));
+        assertNotEquals(" ", fakeMapRepresentation[spaceShip.x()][spaceShip.y()]);
     }
 }

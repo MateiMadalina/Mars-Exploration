@@ -1,7 +1,5 @@
 package com.codecool.marsexploration.mapexplorer.logger;
 
-import java.time.LocalDateTime;
-
 public class ConsoleLogger implements Logger{
     @Override
     public void log(String message) {
