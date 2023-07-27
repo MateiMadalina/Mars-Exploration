@@ -12,7 +12,6 @@ public class MapExpeditionDeployer {
     private final SpaceshipDeployment spaceshipDeployment;
     private final ExplorationSimulationConfiguration explorationSimulationConfig;
 
-
     public MapExpeditionDeployer(MapModel map, RoverDeployer roverDeployer, SpaceshipDeployment spaceshipDeployment, ExplorationSimulationConfiguration explorationSimulationConfig) {
         this.map = map;
         this.roverDeployer = roverDeployer;
@@ -21,12 +20,7 @@ public class MapExpeditionDeployer {
     }
 
     public void sendExpedition(){
-
-      //  Coordinate spaceshipCoordinate = calculator.getRandomLandingCoordinate(map);
         Coordinate spaceshipCoordinate = explorationSimulationConfig.landingSpot();
-//        while(!validator.validate(map,spaceshipCoordinate)){
-//            spaceshipCoordinate = calculator.getRandomLandingCoordinate(map);
-//        }
 
         Coordinate roverCoordinate = validateRoverCoordinate(spaceshipCoordinate);
         spaceshipDeployment.place(spaceshipCoordinate);
@@ -39,9 +33,5 @@ public class MapExpeditionDeployer {
             roverCoordinate = roverDeployer.getPlacement(spaceshipCoordinate);
         }
         return roverCoordinate;
-    }
-
-    public ExplorationSimulationConfiguration getExplorationSimulationConfig() {
-        return explorationSimulationConfig;
     }
 }

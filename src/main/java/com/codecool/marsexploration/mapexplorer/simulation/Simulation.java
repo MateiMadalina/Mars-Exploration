@@ -5,8 +5,6 @@ import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.Rover;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public class Simulation {
     private int numberOfSteps;

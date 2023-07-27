@@ -2,10 +2,6 @@ package com.codecool.marsexploration.mapexplorer.rovers;
 
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculatorImpl;
-import com.codecool.marsexploration.mapexplorer.input.service.MapFileReader;
-import com.codecool.marsexploration.mapexplorer.input.service.MapFileReaderImpl;
-import com.codecool.marsexploration.mapexplorer.maploader.MapLoader;
-import com.codecool.marsexploration.mapexplorer.maploader.MapLoaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
