@@ -3,9 +3,11 @@ package com.codecool.marsexploration.mapexplorer.calculators.service;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 
-public interface CoordinateCalculator {
-//    Coordinate getRandomLandingCoordinate(int dimension);
+import java.util.List;
 
+public interface CoordinateCalculator {
     Coordinate getRandomLandingCoordinate(MapModel map);
     Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension);
+    List<Coordinate> getAllPossiblePlacementsForSpaceshipWithEmptySpaceAdjacent (List<Coordinate> emptySpaces);
+    List<Coordinate> gatAllPossiblePlacementsForRoverWithEmptySpaceAdjacent(List<Coordinate> spaces);
 }

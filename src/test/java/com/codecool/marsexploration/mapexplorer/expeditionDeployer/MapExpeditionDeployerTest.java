@@ -2,16 +2,17 @@ package com.codecool.marsexploration.mapexplorer.expeditionDeployer;
 
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculatorImpl;
-import com.codecool.marsexploration.mapexplorer.configuration.ConfigurationValidator;
-import com.codecool.marsexploration.mapexplorer.configuration.ConfigurationValidatorImpl;
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
+import com.codecool.marsexploration.mapexplorer.rovers.Rover;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
 import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployment;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+
+import static org.mockito.Mockito.mock;
 
 
 class MapExpeditionDeployerTest {
@@ -21,12 +22,13 @@ class MapExpeditionDeployerTest {
             {"#", " ", "#"}
     };
     MapModel fakeMap = new MapModel(fakeMapRepresentation, true);
+    Rover rover = mock(Rover.class);
     CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(fakeMap);
-    RoverDeployer roverDeployer = new RoverDeployer(fakeMap,coordinateCalculator);
+    RoverDeployer roverDeployer = new RoverDeployer(fakeMap,coordinateCalculator, rover);
     SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(fakeMap);
-    ExplorationSimulationConfiguration explorationSimulationConfiguration = new ExplorationSimulationConfiguration(fakeMap.toString(),new Coordinate(0,0), List.of("#","*","%"),5);
-    ConfigurationValidator validator = new ConfigurationValidatorImpl(coordinateCalculator,explorationSimulationConfiguration);
-    MapExpeditionDeployer mapExpeditionDeployer = new MapExpeditionDeployer(fakeMap,roverDeployer,spaceshipDeployment,coordinateCalculator,validator);
+    Coordinate spaceshipCoordinate = coordinateCalculator.getRandomLandingCoordinate(fakeMap);
+    ExplorationSimulationConfiguration explorationSimulationConfig = new ExplorationSimulationConfiguration(" ",spaceshipCoordinate,List.of("#","*"),5);
+    MapExpeditionDeployer mapExpeditionDeployer = new MapExpeditionDeployer(fakeMap,roverDeployer,spaceshipDeployment,explorationSimulationConfig);
 
     @Test
     void sendExpedition() {

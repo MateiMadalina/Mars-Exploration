@@ -6,6 +6,7 @@ import com.codecool.marsexploration.mapexplorer.rovers.Rover;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Simulation {
     private final int numberOfSteps;
@@ -14,9 +15,9 @@ public class Simulation {
     private final Coordinate spaceShip;
     private final MapModel map;
     private final List<String> symbols;
-    private final Map<String,List<Coordinate>> explorationOutcome;
+    private final Map<String, Set<Coordinate>> explorationOutcome;
 
-    public Simulation(int numberOfSteps, int stepsToTimeout, Rover rover, Coordinate spaceShip, MapModel map, List<String> symbols, Map<String, List<Coordinate>> explorationOutcome) {
+    public Simulation(int numberOfSteps, int stepsToTimeout, Rover rover, Coordinate spaceShip, MapModel map, List<String> symbols, Map<String, Set<Coordinate>> explorationOutcome) {
         this.numberOfSteps = numberOfSteps;
         this.stepsToTimeout = stepsToTimeout;
         this.rover = rover;
@@ -25,5 +26,25 @@ public class Simulation {
         this.symbols = symbols;
 
         this.explorationOutcome = explorationOutcome;
+    }
+
+    public int getStepsToTimeout() {
+        return stepsToTimeout;
+    }
+
+    public Rover getRover() {
+        return rover;
+    }
+
+    public MapModel getMap() {
+        return map;
+    }
+
+    public List<String> getSymbols() {
+        return symbols;
+    }
+
+    public Coordinate getSpaceShip() {
+        return spaceShip;
     }
 }
