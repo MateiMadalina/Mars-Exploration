@@ -31,7 +31,6 @@ public class Rover {
         List<Coordinate> adjacentCoordinates = (List<Coordinate>) calculator.getAdjacentCoordinates(this.currentPosition, 1);
         List<Coordinate> emptyAdjacentCoordinates = calculator.gatAllPossiblePlacementsForRoverWithEmptySpaceAdjacent(adjacentCoordinates);
 
-//        System.out.println("empty adjacent spaces: " + adjacentCoordinates);
         return emptyAdjacentCoordinates.get(rand.nextInt(emptyAdjacentCoordinates.size()));
     }
 
@@ -41,9 +40,7 @@ public class Rover {
 
     public void addToResourceMap(MapModel mapModel, List<String> symbols) {
         String[][] mapRepresentation = mapModel.getRepresentation();
-        System.out.println("current position: " + this.currentPosition);
         List<Coordinate> coordinatesAroundRoverWithSight = (List<Coordinate>) calculator.getAdjacentCoordinates(this.currentPosition, this.sight);
-        System.out.println("sight: " + coordinatesAroundRoverWithSight.size());
         for (String symbol : symbols) {
             for (Coordinate coord : coordinatesAroundRoverWithSight) {
                 if (mapRepresentation[coord.x()][coord.y()].equals(symbol)) {

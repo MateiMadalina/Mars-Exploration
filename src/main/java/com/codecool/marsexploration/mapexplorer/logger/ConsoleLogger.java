@@ -13,7 +13,7 @@ public class ConsoleLogger implements Logger{
     }
 
     private void logMessage(String message, String type) {
-        String entry = "[" + LocalDateTime.now() + "] " +  type + ": " + message;
+        String entry = type + ": " + message;
         System.out.println(entry);
     }
 }

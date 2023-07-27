@@ -9,23 +9,20 @@ import java.util.Map;
 import java.util.Set;
 
 public class Simulation {
-    private final int numberOfSteps;
+    private int numberOfSteps;
     private final int stepsToTimeout;
     private final Rover rover;
     private final Coordinate spaceShip;
     private final MapModel map;
     private final List<String> symbols;
-    private final Map<String, Set<Coordinate>> explorationOutcome;
 
-    public Simulation(int numberOfSteps, int stepsToTimeout, Rover rover, Coordinate spaceShip, MapModel map, List<String> symbols, Map<String, Set<Coordinate>> explorationOutcome) {
-        this.numberOfSteps = numberOfSteps;
+    public Simulation(int stepsToTimeout, Rover rover, Coordinate spaceShip, MapModel map, List<String> symbols) {
+        this.numberOfSteps = 0;
         this.stepsToTimeout = stepsToTimeout;
         this.rover = rover;
         this.spaceShip = spaceShip;
         this.map = map;
         this.symbols = symbols;
-
-        this.explorationOutcome = explorationOutcome;
     }
 
     public int getStepsToTimeout() {
@@ -46,5 +43,13 @@ public class Simulation {
 
     public Coordinate getSpaceShip() {
         return spaceShip;
+    }
+
+    public int getNumberOfSteps() {
+        return numberOfSteps;
+    }
+
+    public void incrementNumberOfSteps() {
+        this.numberOfSteps++;
     }
 }
