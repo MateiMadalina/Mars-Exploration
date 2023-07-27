@@ -37,6 +37,7 @@ class ConfigurationValidatorImplTest {
         Coordinate coordinate = new Coordinate(2, 14);
         ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(
                 mapFile, coordinate, symbols, 30);
+
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
         ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
 

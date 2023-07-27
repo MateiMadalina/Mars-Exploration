@@ -24,7 +24,7 @@ class SimulationStepsTest {
     private final List<String> symbols = List.of("#", "%", "*", "&");
     private final String[][] fakeRepresentation =
             {
-                    {" ", "#", "#", "#", "*", " ", " ", " ", " "},
+                    {" ", "#", "#", "#", " ", " ", " ", " ", " "},
                     {"#", "*", "$", " ", "%", " ", " ", " ", " "},
                     {" ", "#", " ", "*", "%", " ", " ", " ", " "},
                     {"*", "#", "#", " ", " ", " ", " ", " ", " "},
@@ -39,11 +39,10 @@ class SimulationStepsTest {
     void roverMovementRoutine() {
         MapModel mapModel = new MapModel(fakeRepresentation, true);
         Map<String, Set<Coordinate>> resourcesLocation = new HashMap<>();
-        Coordinate roverCoordinate = new Coordinate(2,2);
         Coordinate spaceshipCoordinate = new Coordinate(1, 2);
 
         CoordinateCalculator calculator = new CoordinateCalculatorImpl(mapModel);
-        Rover rover = new Rover(0, "rover-1", roverCoordinate, 2, resourcesLocation, calculator);
+        Rover rover = new Rover(0, "rover-1", null, 2, resourcesLocation, calculator);
 
         RoverDeployer roverDeployer = new RoverDeployer(mapModel, calculator, rover);
         SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(mapModel);
@@ -52,7 +51,7 @@ class SimulationStepsTest {
 
         MapExpeditionDeployer deployer = new MapExpeditionDeployer(mapModel, roverDeployer, spaceshipDeployment, explorationConfig);
 
-        Simulation simulation = new Simulation(0, 1, rover, spaceshipCoordinate, mapModel, symbols, resourcesLocation);
+        Simulation simulation = new Simulation(0, 100, rover, spaceshipCoordinate, mapModel, symbols, resourcesLocation);
         SimulationSteps simulationSteps = new SimulationSteps(calculator, simulation, deployer);
 
         simulationSteps.roverMovementRoutine();

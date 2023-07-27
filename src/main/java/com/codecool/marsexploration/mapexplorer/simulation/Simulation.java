@@ -43,4 +43,8 @@ public class Simulation {
     public List<String> getSymbols() {
         return symbols;
     }
+
+    public Coordinate getSpaceShip() {
+        return spaceShip;
+    }
 }

@@ -30,7 +30,8 @@ public class Rover {
     public Coordinate pickStep() {
         List<Coordinate> adjacentCoordinates = (List<Coordinate>) calculator.getAdjacentCoordinates(this.currentPosition, 1);
         List<Coordinate> emptyAdjacentCoordinates = calculator.gatAllPossiblePlacementsForRoverWithEmptySpaceAdjacent(adjacentCoordinates);
-        System.out.println(this.currentPosition);
+
+//        System.out.println("empty adjacent spaces: " + adjacentCoordinates);
         return emptyAdjacentCoordinates.get(rand.nextInt(emptyAdjacentCoordinates.size()));
     }
 
@@ -40,9 +41,10 @@ public class Rover {
 
     public void addToResourceMap(MapModel mapModel, List<String> symbols) {
         String[][] mapRepresentation = mapModel.getRepresentation();
-        List<Coordinate> coordinatesAroundRoverWithSight = (List<Coordinate>) calculator.getAdjacentCoordinatesBasedOnSight(this.currentPosition, this.sight);
+        System.out.println("current position: " + this.currentPosition);
+        List<Coordinate> coordinatesAroundRoverWithSight = (List<Coordinate>) calculator.getAdjacentCoordinates(this.currentPosition, this.sight);
+        System.out.println("sight: " + coordinatesAroundRoverWithSight.size());
         for (String symbol : symbols) {
-
             for (Coordinate coord : coordinatesAroundRoverWithSight) {
                 if (mapRepresentation[coord.x()][coord.y()].equals(symbol)) {
                     Set<Coordinate> resourcesFound = this.resourceLocations.getOrDefault(symbol, new HashSet<>());
@@ -51,7 +53,6 @@ public class Rover {
                 }
             }
         }
-        System.out.println(resourceLocations);
     }
 
     public void addToPickedSteps(Coordinate coordinate) {
@@ -68,5 +69,9 @@ public class Rover {
 
     public List<Coordinate> getPickedSteps() {
         return pickedSteps;
+    }
+
+    public Map<String, Set<Coordinate>> getResourceLocations() {
+        return resourceLocations;
     }
 }

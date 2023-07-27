@@ -27,14 +27,14 @@ public class MapExpeditionDeployer {
 //        while(!validator.validate(map,spaceshipCoordinate)){
 //            spaceshipCoordinate = calculator.getRandomLandingCoordinate(map);
 //        }
-        Coordinate roverCoordinate = roverDeployer.getPlacement(spaceshipCoordinate);
-        roverCoordinate = validateRoverCoordinate(roverCoordinate,spaceshipCoordinate);
+
+        Coordinate roverCoordinate = validateRoverCoordinate(spaceshipCoordinate);
         spaceshipDeployment.place(spaceshipCoordinate);
         roverDeployer.place(roverCoordinate);
     }
 
-    private Coordinate validateRoverCoordinate(Coordinate roverCoordinate , Coordinate spaceshipCoordinate){
-        System.out.println(roverCoordinate);
+    private Coordinate validateRoverCoordinate(Coordinate spaceshipCoordinate){
+        Coordinate roverCoordinate = roverDeployer.getPlacement(spaceshipCoordinate);
         while(!map.getRepresentation()[roverCoordinate.x()][roverCoordinate.y()].equals(" ")){
             roverCoordinate = roverDeployer.getPlacement(spaceshipCoordinate);
         }
