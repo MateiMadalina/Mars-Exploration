@@ -7,8 +7,8 @@ import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import java.util.*;
 
 public class Rover {
-    private int id;
-    private String name;
+    private final int id;
+    private final String name;
     private Coordinate currentPosition;
     private int sight;
     private Map<String, Set<Coordinate>> resourceLocations;

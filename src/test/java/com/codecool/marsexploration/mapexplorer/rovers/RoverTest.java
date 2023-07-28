@@ -27,7 +27,7 @@ class RoverTest {
             };
 
     @Test
-    void addToResourceMap() throws FileNotFoundException {
+    void addToResourceMap(){
         MapModel mapModel = new MapModel(fakeRepresentation, true);
         CoordinateCalculator calculator = new CoordinateCalculatorImpl(mapModel);
         Map<String, Set<Coordinate>> resourcesLocations = new HashMap<>();

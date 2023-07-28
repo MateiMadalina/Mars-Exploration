@@ -11,7 +11,7 @@ class SpaceshipDeploymentTest {
 
 
     @Test
-    void placeReturnTrue() throws FileNotFoundException {
+    void placeReturnTrue() {
         String[][] fakeMapRepresentation = {
                 {" ", "#", "&"},
                 {" ", "*", "%"},
@@ -26,7 +26,7 @@ class SpaceshipDeploymentTest {
     }
 
     @Test
-    void placeReturnFalse() throws FileNotFoundException {
+    void placeReturnFalse() {
         String[][] fakeMapRepresentation = {
                 {" ", "#", "&"},
                 {" ", "*", "%"},

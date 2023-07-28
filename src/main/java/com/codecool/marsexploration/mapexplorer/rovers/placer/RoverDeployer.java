@@ -24,8 +24,7 @@ public class RoverDeployer {
     public Coordinate getPlacement(Coordinate spaceshipCoordinate){
         Random random = new Random();
         List<Coordinate> potentialDeploymentCoordinate = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(spaceshipCoordinate,1);
-        Coordinate choosenDeplymentCoordinate = potentialDeploymentCoordinate.get(random.nextInt(potentialDeploymentCoordinate.size()));
-        return choosenDeplymentCoordinate;
+        return potentialDeploymentCoordinate.get(random.nextInt(potentialDeploymentCoordinate.size()));
     }
 
     public void place(Coordinate roverCoordinate){

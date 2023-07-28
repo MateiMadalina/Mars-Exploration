@@ -14,7 +14,7 @@ public class LackOfResourcesAnalyzer implements Analyzer{
     private final Simulation simulation;
 
     private final CoordinateCalculator coordinateCalculator;
-    private Logger fileLogger;
+    private final Logger fileLogger;
 
     public LackOfResourcesAnalyzer(Simulation simulation, CoordinateCalculator coordinateCalculator, Logger fileLogger) {
         this.simulation = simulation;
