@@ -36,13 +36,13 @@ class RoverDeployerTest {
     void placeReturnTrue() {
         RoverDeployer roverDeployer = new RoverDeployer(fakeMap,coordinateCalculator, rover);
         roverDeployer.place(new Coordinate(0,1));
-        assertTrue(fakeMapRepresentation[0][1].equals("@"));
+        assertEquals("@", fakeMapRepresentation[0][1]);
     }
 
     @Test
     void placeReturnFalse() {
         RoverDeployer roverDeployer = new RoverDeployer(fakeMap,coordinateCalculator, rover);
         roverDeployer.place(new Coordinate(0,1));
-        assertFalse(fakeMapRepresentation[0][1].equals(" "));
+        assertNotEquals(" ", fakeMapRepresentation[0][1]);
     }
 }
