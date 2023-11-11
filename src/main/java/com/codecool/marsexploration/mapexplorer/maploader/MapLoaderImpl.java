@@ -16,7 +16,7 @@ public class MapLoaderImpl implements MapLoader{
     public MapModel load(String mapFile) throws FileNotFoundException {
         String mapString = mapFileReader.readMapFile(mapFile);
         String[][] mapRepresentation = populate2DArray(32, 32, mapString);
-        return new MapModel(mapRepresentation, true);
+        return new MapModel(mapRepresentation);
     }
 
     private static String[][] populate2DArray(int rows, int columns, String dataString) {

@@ -24,7 +24,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
     }
 
     private List<Coordinate> getEmptySpacesCoordinates(MapModel map) {
-        String[][] mapRepresentation = map.getRepresentation();
+        String[][] mapRepresentation = map.representation();
         List<Coordinate> emptySpaces = new ArrayList<>();
 
         for (int i = 0; i < mapRepresentation.length; i++) {
@@ -43,7 +43,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
         for (Coordinate emptySpace : emptySpaces) {
             List<Coordinate> adjacentCoordinates = (List<Coordinate>) getAdjacentCoordinates(emptySpace, 1);
             if (adjacentCoordinates.stream().anyMatch(coordinate -> {
-                String content = map.getRepresentation()[coordinate.x()][coordinate.y()];
+                String content = map.representation()[coordinate.x()][coordinate.y()];
                 return content.equals(" ");
             })) {
                 possibleSpots.add(emptySpace);
@@ -54,7 +54,7 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
 
     public List<Coordinate> gatAllPossiblePlacementsForRoverWithEmptySpaceAdjacent(List<Coordinate> spaces) {
         return spaces.stream()
-                .filter(coordinate -> map.getRepresentation()[coordinate.x()][coordinate.y()].equals(" "))
+                .filter(coordinate -> map.representation()[coordinate.x()][coordinate.y()].equals(" "))
                 .toList();
     }
 

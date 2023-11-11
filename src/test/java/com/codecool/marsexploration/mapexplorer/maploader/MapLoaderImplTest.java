@@ -19,8 +19,8 @@ class MapLoaderImplTest {
         int expectedColumns = 32;
 
         MapModel generatedMap = mapLoader.load(mapFile);
-        int actualRows = generatedMap.getRepresentation().length;
-        int actualColumns = generatedMap.getRepresentation()[0].length;
+        int actualRows = generatedMap.representation().length;
+        int actualColumns = generatedMap.representation()[0].length;
 
         assertEquals(expectedRows, actualRows);
         assertEquals(expectedColumns, actualColumns);

@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class ConfigurationValidatorImpl implements ConfigurationValidator{
-    private CoordinateCalculator coordinateCalculator;
-    private ExplorationSimulationConfiguration explorationConfig;
+    private final CoordinateCalculator coordinateCalculator;
+    private final ExplorationSimulationConfiguration explorationConfig;
 
     public ConfigurationValidatorImpl(CoordinateCalculator coordinateCalculator, ExplorationSimulationConfiguration explorationConfig) {
         this.coordinateCalculator = coordinateCalculator;
@@ -26,12 +26,12 @@ public class ConfigurationValidatorImpl implements ConfigurationValidator{
     }
 
     private boolean landingSpotIsAvailable(MapModel map, Coordinate coordinate) {
-        String[][] mapRepresentation = map.getRepresentation();
+        String[][] mapRepresentation = map.representation();
         return Objects.equals(mapRepresentation[coordinate.x()][coordinate.y()], " ");
     }
 
     private boolean availableSpotNextToShip(MapModel map, Coordinate coordinate) {
-        String[][] mapRepresentation = map.getRepresentation();
+        String[][] mapRepresentation = map.representation();
         List<Coordinate> allCoordinates = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);
 
        return allCoordinates.stream().anyMatch(coord -> mapRepresentation[coord.x()][coord.y()].equals(" "));

@@ -28,7 +28,7 @@ public class RoverDeployer {
     }
 
     public void place(Coordinate roverCoordinate){
-        String[][] mapRepresentation = map.getRepresentation();
+        String[][] mapRepresentation = map.representation();
         mapRepresentation[roverCoordinate.x()][roverCoordinate.y()] = "@";
         rover.setCurrentPosition(roverCoordinate);
     }

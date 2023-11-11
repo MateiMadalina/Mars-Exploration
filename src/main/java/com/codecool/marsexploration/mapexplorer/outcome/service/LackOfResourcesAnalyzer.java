@@ -38,7 +38,7 @@ public class LackOfResourcesAnalyzer implements Analyzer{
 
     private boolean checkForEnoughWaterNearSpaceship(int expectedPocketsOfWaterNearSpaceship, int searchDimension) {
         Coordinate spaceshipCoordinate = simulation.getSpaceShip();
-        String[][] mapRepresentation = simulation.getMap().getRepresentation();
+        String[][] mapRepresentation = simulation.getMap().representation();
         List<Coordinate> adjacentResources = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(spaceshipCoordinate, searchDimension);
 
         int pocketsOfWater = (int) adjacentResources.stream()

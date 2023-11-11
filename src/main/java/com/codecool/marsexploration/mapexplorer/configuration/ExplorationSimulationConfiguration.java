@@ -4,9 +4,6 @@ import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 
 import java.util.List;
 
-public record ExplorationSimulationConfiguration(
-        String mapFile,
-        Coordinate landingSpot,
-        List<String> symbols,
-        int simulationStepsAmount
-) { }
+public record ExplorationSimulationConfiguration(String mapFile, Coordinate landingSpot, List<String> symbols, int simulationStepsAmount) {
+
+}

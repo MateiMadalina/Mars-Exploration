@@ -39,7 +39,7 @@ public class Rover {
     }
 
     public void addToResourceMap(MapModel mapModel, List<String> symbols) {
-        String[][] mapRepresentation = mapModel.getRepresentation();
+        String[][] mapRepresentation = mapModel.representation();
         List<Coordinate> coordinatesAroundRoverWithSight = (List<Coordinate>) calculator.getAdjacentCoordinates(this.currentPosition, this.sight);
         for (String symbol : symbols) {
             for (Coordinate coord : coordinatesAroundRoverWithSight) {

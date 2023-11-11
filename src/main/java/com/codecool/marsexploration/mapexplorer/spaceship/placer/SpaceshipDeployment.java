@@ -11,7 +11,7 @@ public class SpaceshipDeployment {
     }
 
     public void place(Coordinate spaceShipCoordinate){
-        String[][] mapRepresentation = map.getRepresentation();
+        String[][] mapRepresentation = map.representation();
         mapRepresentation[spaceShipCoordinate.x()][spaceShipCoordinate.y()] = "$";
     }
 }

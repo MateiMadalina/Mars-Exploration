@@ -29,7 +29,7 @@ public class MapExpeditionDeployer {
 
     private Coordinate validateRoverCoordinate(Coordinate spaceshipCoordinate){
         Coordinate roverCoordinate = roverDeployer.getPlacement(spaceshipCoordinate);
-        while(!map.getRepresentation()[roverCoordinate.x()][roverCoordinate.y()].equals(" ")){
+        while(!map.representation()[roverCoordinate.x()][roverCoordinate.y()].equals(" ")){
             roverCoordinate = roverDeployer.getPlacement(spaceshipCoordinate);
         }
         return roverCoordinate;
