@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class CoordinateCalculatorImpl implements CoordinateCalculator {
-    private MapModel map;
+    private final MapModel map;
 
     public CoordinateCalculatorImpl(MapModel map) {
         this.map = map;
@@ -52,16 +52,18 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
         return possibleSpots;
     }
 
-    public List<Coordinate> gatAllPossiblePlacementsForRoverWithEmptySpaceAdjacent(List<Coordinate> spaces){
-        return spaces.stream().filter(coordinate -> map.getRepresentation()[coordinate.x()][coordinate.y()].equals(" ")).toList();
+    public List<Coordinate> gatAllPossiblePlacementsForRoverWithEmptySpaceAdjacent(List<Coordinate> spaces) {
+        return spaces.stream()
+                .filter(coordinate -> map.getRepresentation()[coordinate.x()][coordinate.y()].equals(" "))
+                .toList();
     }
 
     public Iterable<Coordinate> getAdjacentCoordinates(Coordinate coordinate, int dimension) {
         int mapDimension = map.getDimension() - 1;
-        int xStart = coordinate.x() - dimension <= 0 ? 0 : coordinate.x() - dimension;
-        int yStart = coordinate.y() - dimension <= 0 ? 0 : coordinate.y() - dimension;
-        int xFinal = coordinate.x() + dimension >= mapDimension ? mapDimension : coordinate.x() + dimension;
-        int yFinal = coordinate.y() + dimension >= mapDimension ? mapDimension : coordinate.y() + dimension;
+        int xStart = Math.max(coordinate.x() - dimension, 0);
+        int yStart = Math.max(coordinate.y() - dimension, 0);
+        int xFinal = Math.min(coordinate.x() + dimension, mapDimension);
+        int yFinal = Math.min(coordinate.y() + dimension, mapDimension);
 
         List<Coordinate> allCoordinates = (List<Coordinate>) getCoordinates(xStart, yStart, xFinal, yFinal);
         allCoordinates.remove(coordinate);
@@ -75,25 +77,4 @@ public class CoordinateCalculatorImpl implements CoordinateCalculator {
                         .mapToObj(y -> new Coordinate(x, y)))
                 .collect(Collectors.toList());
     }
-
-
-//    public List<Coordinate> getAdjacentCoordinates(Coordinate coordinate,int dimension) {
-//        int x = coordinate.x();
-//        int y = coordinate.y();
-//
-//        int xStart = Math.max(0, x - dimension);
-//        int yStart = Math.max(0, y - dimension);
-//        int xFinal = Math.min(map.getDimension() - 1, x + dimension);
-//        int yFinal = Math.min(map.getDimension() - 1, y + dimension);
-//
-//        List<Coordinate> allCoordinates = new ArrayList<>();
-//        for (int i = xStart; i <= xFinal; i++) {
-//            for (int j = yStart; j <= yFinal; j++) {
-//                if (i != x || j != y) {
-//                    allCoordinates.add(new Coordinate(i, j));
-//                }
-//            }
-//        }
-//        return allCoordinates;
-//    }
 }
