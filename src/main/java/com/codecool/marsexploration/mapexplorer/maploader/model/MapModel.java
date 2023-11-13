@@ -19,6 +19,9 @@ public record MapModel(String[][] representation) {
 
         return sb.toString();
     }
+    public String[][] getRepresentation() {
+        return representation;
+    }
 
     @Override
     public String toString() {

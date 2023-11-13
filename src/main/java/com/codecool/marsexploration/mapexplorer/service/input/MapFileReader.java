@@ -1,4 +1,4 @@
-package com.codecool.marsexploration.mapexplorer.input.service;
+package com.codecool.marsexploration.mapexplorer.service.input;
 
 import java.io.FileNotFoundException;
 

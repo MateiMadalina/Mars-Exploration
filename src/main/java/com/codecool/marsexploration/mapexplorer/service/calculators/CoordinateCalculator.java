@@ -1,4 +1,4 @@
-package com.codecool.marsexploration.mapexplorer.calculators.service;
+package com.codecool.marsexploration.mapexplorer.service.calculators;
 
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;

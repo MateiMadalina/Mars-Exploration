@@ -1,11 +1,13 @@
-package com.codecool.marsexploration.mapexplorer.input.service;
+package com.codecool.marsexploration.mapexplorer.service.input;
+
+import com.codecool.marsexploration.mapexplorer.service.input.MapFileReader;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class MapFileReaderImpl implements MapFileReader{
+public class MapFileReaderImpl implements MapFileReader {
     @Override
     public String readMapFile(String filePath) throws FileNotFoundException {
         StringBuilder characters = new StringBuilder();

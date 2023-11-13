@@ -1,12 +1,11 @@
 package com.codecool.marsexploration.mapexplorer.rovers;
 
-import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
-import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculatorImpl;
+import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

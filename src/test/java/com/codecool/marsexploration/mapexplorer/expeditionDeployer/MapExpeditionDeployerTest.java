@@ -1,7 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.expeditionDeployer;
 
-import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
-import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculatorImpl;
+import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;

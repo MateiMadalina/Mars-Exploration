@@ -1,30 +1,31 @@
 package com.codecool.marsexploration.mapexplorer.rovers;
 
-import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 
 import java.util.*;
 
 public class Rover {
-    private final int id;
     private final String name;
     private Coordinate currentPosition;
-    private int sight;
+    private final int sight;
     private Map<String, Set<Coordinate>> resourceLocations;
     private final CoordinateCalculator calculator;
     private final Random rand;
     private List<Coordinate> pickedSteps;
+    private static int count = 1;
 
-    public Rover(int id, String name, Coordinate currentPosition, int sight, Map<String, Set<Coordinate>> resourceLocations, CoordinateCalculator calculator) {
-        this.id = id;
-        this.name = name;
+    public Rover(Coordinate currentPosition, int sight, Map<String, Set<Coordinate>> resourceLocations, CoordinateCalculator calculator) {
+        int id = count;
+        this.name = "Rover" + count;
         this.currentPosition = currentPosition;
         this.sight = sight;
         this.resourceLocations = resourceLocations;
         this.calculator = calculator;
         this.rand = new Random();
         this.pickedSteps = new ArrayList<>();
+        count++;
     }
 
     public Coordinate pickStep() {
@@ -34,12 +35,12 @@ public class Rover {
         return emptyAdjacentCoordinates.get(rand.nextInt(emptyAdjacentCoordinates.size()));
     }
 
-    public void returnToSpaceship(Coordinate spaceshipCoordinate) {
-        this.currentPosition = spaceshipCoordinate;
+    public void moveToDestination(Coordinate destination) {
+        this.currentPosition = destination;
     }
 
     public void addToResourceMap(MapModel mapModel, List<String> symbols) {
-        String[][] mapRepresentation = mapModel.representation();
+        String[][] mapRepresentation = mapModel.getRepresentation();
         List<Coordinate> coordinatesAroundRoverWithSight = (List<Coordinate>) calculator.getAdjacentCoordinates(this.currentPosition, this.sight);
         for (String symbol : symbols) {
             for (Coordinate coord : coordinatesAroundRoverWithSight) {
@@ -70,5 +71,9 @@ public class Rover {
 
     public Map<String, Set<Coordinate>> getResourceLocations() {
         return resourceLocations;
+    }
+
+    public String getName() {
+        return name;
     }
 }

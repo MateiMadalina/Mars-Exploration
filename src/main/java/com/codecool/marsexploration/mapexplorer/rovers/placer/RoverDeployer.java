@@ -1,6 +1,6 @@
 package com.codecool.marsexploration.mapexplorer.rovers.placer;
 
-import com.codecool.marsexploration.mapexplorer.calculators.service.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.Rover;
