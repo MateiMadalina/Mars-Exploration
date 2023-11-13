@@ -4,7 +4,7 @@ import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulat
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
-import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployer;
+import com.codecool.marsexploration.mapexplorer.spaceship.SpaceshipDeployer;
 
 public class MapExpeditionDeployer {
     private final MapModel map;

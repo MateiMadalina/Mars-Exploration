@@ -1,4 +1,4 @@
-package com.codecool.marsexploration.mapexplorer.spaceship.placer;
+package com.codecool.marsexploration.mapexplorer.spaceship;
 
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;

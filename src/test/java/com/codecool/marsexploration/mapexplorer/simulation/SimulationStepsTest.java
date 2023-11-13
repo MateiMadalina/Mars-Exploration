@@ -15,7 +15,7 @@ import com.codecool.marsexploration.mapexplorer.routines.ExplorationRoutine;
 import com.codecool.marsexploration.mapexplorer.routines.Routine;
 import com.codecool.marsexploration.mapexplorer.rovers.Rover;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
-import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployer;
+import com.codecool.marsexploration.mapexplorer.spaceship.SpaceshipDeployer;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;

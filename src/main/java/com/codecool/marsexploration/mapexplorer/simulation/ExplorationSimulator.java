@@ -22,7 +22,7 @@ import com.codecool.marsexploration.mapexplorer.input.MapFileReader;
 import com.codecool.marsexploration.mapexplorer.input.MapFileReaderImpl;
 import com.codecool.marsexploration.mapexplorer.outcome.Analyzer;
 import com.codecool.marsexploration.mapexplorer.outcome.LackOfResourcesAnalyzer;
-import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployer;
+import com.codecool.marsexploration.mapexplorer.spaceship.SpaceshipDeployer;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

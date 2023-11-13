@@ -7,7 +7,7 @@ import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.Rover;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
-import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployer;
+import com.codecool.marsexploration.mapexplorer.spaceship.SpaceshipDeployer;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
