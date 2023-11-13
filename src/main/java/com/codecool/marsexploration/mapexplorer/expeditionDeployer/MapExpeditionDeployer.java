@@ -4,18 +4,18 @@ import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulat
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
-import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployment;
+import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployer;
 
 public class MapExpeditionDeployer {
     private final MapModel map;
     private final RoverDeployer roverDeployer;
-    private final SpaceshipDeployment spaceshipDeployment;
+    private final SpaceshipDeployer spaceshipDeployer;
     private final ExplorationSimulationConfiguration explorationSimulationConfig;
 
-    public MapExpeditionDeployer(MapModel map, RoverDeployer roverDeployer, SpaceshipDeployment spaceshipDeployment, ExplorationSimulationConfiguration explorationSimulationConfig) {
+    public MapExpeditionDeployer(MapModel map, RoverDeployer roverDeployer, SpaceshipDeployer spaceshipDeployer, ExplorationSimulationConfiguration explorationSimulationConfig) {
         this.map = map;
         this.roverDeployer = roverDeployer;
-        this.spaceshipDeployment = spaceshipDeployment;
+        this.spaceshipDeployer = spaceshipDeployer;
         this.explorationSimulationConfig = explorationSimulationConfig;
     }
 
@@ -23,7 +23,7 @@ public class MapExpeditionDeployer {
         Coordinate spaceshipCoordinate = explorationSimulationConfig.landingSpot();
 
         Coordinate roverCoordinate = validateRoverCoordinate(spaceshipCoordinate);
-        spaceshipDeployment.place(spaceshipCoordinate);
+        spaceshipDeployer.place(spaceshipCoordinate);
         roverDeployer.place(roverCoordinate);
     }
 

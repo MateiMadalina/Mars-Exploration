@@ -1,7 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.rovers;
 
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculatorImpl;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
@@ -27,11 +27,11 @@ class RoverTest {
 
     @Test
     void addToResourceMap(){
-        MapModel mapModel = new MapModel(fakeRepresentation, true);
+        MapModel mapModel = new MapModel(fakeRepresentation);
         CoordinateCalculator calculator = new CoordinateCalculatorImpl(mapModel);
         Map<String, Set<Coordinate>> resourcesLocations = new HashMap<>();
         Coordinate currentPosition = new Coordinate(2, 2);
-        Rover rover = new Rover(0, "rover", currentPosition, 2, resourcesLocations, calculator);
+        Rover rover = new Rover( currentPosition, 2, resourcesLocations, calculator);
 
         Map<String, Set<Coordinate>> expected = Map.of(
                 "#", Set.of(
@@ -65,11 +65,11 @@ class RoverTest {
 
     @Test
     void pickStep(){
-        MapModel mapModel = new MapModel(fakeRepresentation, true);
+        MapModel mapModel = new MapModel(fakeRepresentation);
         CoordinateCalculator calculator = new CoordinateCalculatorImpl(mapModel);
         Map<String, Set<Coordinate>> resourcesLocations = new HashMap<>();
         Coordinate currentPosition = new Coordinate(2, 2);
-        Rover rover = new Rover(0, "rover", currentPosition, 2, resourcesLocations, calculator);
+        Rover rover = new Rover( currentPosition, 2, resourcesLocations, calculator);
 
         List<Coordinate> expected = List.of(
                 new Coordinate(1,3),
@@ -84,15 +84,16 @@ class RoverTest {
 
     @Test
     void returnToSpaceship(){
-        MapModel mapModel = new MapModel(fakeRepresentation, true);
+        MapModel mapModel = new MapModel(fakeRepresentation);
         CoordinateCalculator calculator = new CoordinateCalculatorImpl(mapModel);
         Map<String, Set<Coordinate>> resourcesLocations = new HashMap<>();
         Coordinate currentPosition = new Coordinate(2, 2);
-        Rover rover = new Rover(0, "rover", currentPosition, 2, resourcesLocations, calculator);
+        Rover rover = new Rover( currentPosition, 2, resourcesLocations, calculator);
 
 
         Coordinate expected = new Coordinate(1,2);
-        rover.returnToSpaceship(expected);
+        rover.moveToDestination(expected);
         assertEquals(expected, rover.getCurrentPosition());
     }
+
 }

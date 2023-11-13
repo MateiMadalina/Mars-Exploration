@@ -16,13 +16,13 @@ import com.codecool.marsexploration.mapexplorer.routines.ExtractionRoutine;
 import com.codecool.marsexploration.mapexplorer.routines.Routine;
 import com.codecool.marsexploration.mapexplorer.rovers.Rover;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculatorImpl;
-import com.codecool.marsexploration.mapexplorer.service.input.MapFileReader;
-import com.codecool.marsexploration.mapexplorer.service.input.MapFileReaderImpl;
-import com.codecool.marsexploration.mapexplorer.service.outcome.Analyzer;
-import com.codecool.marsexploration.mapexplorer.service.outcome.LackOfResourcesAnalyzer;
-import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployment;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculatorImpl;
+import com.codecool.marsexploration.mapexplorer.input.MapFileReader;
+import com.codecool.marsexploration.mapexplorer.input.MapFileReaderImpl;
+import com.codecool.marsexploration.mapexplorer.outcome.Analyzer;
+import com.codecool.marsexploration.mapexplorer.outcome.LackOfResourcesAnalyzer;
+import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployer;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -53,10 +53,10 @@ public class ExplorationSimulator {
     Rover rover = new Rover( null, 2, resourceLocations, coordinateCalculator);
     List<Rover> rovers = new ArrayList<>(List.of(rover));
     Simulation simulation = new Simulation(stepsToTimeout, rovers, spaceshipCoordinate, currentMap, symbols);
-    SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(currentMap);
+    SpaceshipDeployer spaceshipDeployer = new SpaceshipDeployer(currentMap);
     RoverDeployer roverDeployer = new RoverDeployer(currentMap, coordinateCalculator, rover);
     ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(mapFile, spaceshipCoordinate, symbols, stepsToTimeout);
-    MapExpeditionDeployer mapExpeditionDeployer = new MapExpeditionDeployer(currentMap, roverDeployer, spaceshipDeployment, explorationConfig);
+    MapExpeditionDeployer mapExpeditionDeployer = new MapExpeditionDeployer(currentMap, roverDeployer, spaceshipDeployer, explorationConfig);
     Analyzer lackOfResourcesAnalyzer = new LackOfResourcesAnalyzer(simulation, coordinateCalculator, fileLogger);
     List<Analyzer> analyzers = List.of(lackOfResourcesAnalyzer);
 

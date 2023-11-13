@@ -1,7 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.rovers.placer;
 
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculatorImpl;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.Rover;
@@ -19,7 +19,7 @@ class RoverDeployerTest {
             {"#", " ", "#"}
     };
 
-    MapModel fakeMap = new MapModel(fakeMapRepresentation, true);
+    MapModel fakeMap = new MapModel(fakeMapRepresentation);
     Rover rover = mock(Rover.class);
     Coordinate spaceShip = new Coordinate(0,0);
     CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(fakeMap);

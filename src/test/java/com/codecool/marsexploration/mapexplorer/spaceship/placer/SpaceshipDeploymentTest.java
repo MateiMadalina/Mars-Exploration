@@ -4,7 +4,6 @@ import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SpaceshipDeploymentTest {
@@ -18,10 +17,10 @@ class SpaceshipDeploymentTest {
                 {"#", " ", "#"}
         };
 
-        MapModel fakeMap = new MapModel(fakeMapRepresentation, true);
-        SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(fakeMap);
+        MapModel fakeMap = new MapModel(fakeMapRepresentation);
+        SpaceshipDeployer spaceshipDeployer = new SpaceshipDeployer(fakeMap);
         Coordinate spaceShip = new Coordinate(0,0);
-        spaceshipDeployment.place(spaceShip);
+        spaceshipDeployer.place(spaceShip);
         assertEquals("$", fakeMapRepresentation[spaceShip.x()][spaceShip.y()]);
     }
 
@@ -33,10 +32,10 @@ class SpaceshipDeploymentTest {
                 {"#", " ", "#"}
         };
 
-        MapModel fakeMap = new MapModel(fakeMapRepresentation, true);
-        SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(fakeMap);
+        MapModel fakeMap = new MapModel(fakeMapRepresentation);
+        SpaceshipDeployer spaceshipDeployer = new SpaceshipDeployer(fakeMap);
         Coordinate spaceShip = new Coordinate(0,0);
-        spaceshipDeployment.place(spaceShip);
+        spaceshipDeployer.place(spaceShip);
         assertNotEquals(" ", fakeMapRepresentation[spaceShip.x()][spaceShip.y()]);
     }
 }

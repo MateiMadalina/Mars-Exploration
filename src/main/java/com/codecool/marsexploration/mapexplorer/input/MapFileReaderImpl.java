@@ -1,6 +1,4 @@
-package com.codecool.marsexploration.mapexplorer.service.input;
-
-import com.codecool.marsexploration.mapexplorer.service.input.MapFileReader;
+package com.codecool.marsexploration.mapexplorer.input;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

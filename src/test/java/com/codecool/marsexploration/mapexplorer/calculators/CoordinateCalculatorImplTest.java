@@ -1,13 +1,13 @@
-package com.codecool.marsexploration.mapexplorer.calculators.service;
+package com.codecool.marsexploration.mapexplorer.calculators;
 
-import com.codecool.marsexploration.mapexplorer.service.input.MapFileReader;
-import com.codecool.marsexploration.mapexplorer.service.input.MapFileReaderImpl;
+import com.codecool.marsexploration.mapexplorer.input.MapFileReader;
+import com.codecool.marsexploration.mapexplorer.input.MapFileReaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.MapLoader;
 import com.codecool.marsexploration.mapexplorer.maploader.MapLoaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculatorImpl;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculatorImpl;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -32,7 +32,7 @@ class CoordinateCalculatorImplTest {
                 {"#", " ", "#"}
         };
 
-        MapModel fakeMap = new MapModel(fakeMapRepresentation, true);
+        MapModel fakeMap = new MapModel(fakeMapRepresentation);
 
         when(fakeMapLoader.load(mapFile)).thenReturn(fakeMap);
 
@@ -86,6 +86,7 @@ class CoordinateCalculatorImplTest {
 
     @Test
     void getAdjacentCoordinatesReturns3CoordinatesForLowerLeftCorner() throws FileNotFoundException {
+        //extract method
         Coordinate coordinate = new Coordinate(31, 0);
         CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
         List<Coordinate> coordinateList = (List<Coordinate>) coordinateCalculator.getAdjacentCoordinates(coordinate, 1);

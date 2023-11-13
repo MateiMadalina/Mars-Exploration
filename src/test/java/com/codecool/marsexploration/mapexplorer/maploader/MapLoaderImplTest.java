@@ -1,7 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.maploader;
 
-import com.codecool.marsexploration.mapexplorer.service.input.MapFileReader;
-import com.codecool.marsexploration.mapexplorer.service.input.MapFileReaderImpl;
+import com.codecool.marsexploration.mapexplorer.input.MapFileReader;
+import com.codecool.marsexploration.mapexplorer.input.MapFileReaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
 

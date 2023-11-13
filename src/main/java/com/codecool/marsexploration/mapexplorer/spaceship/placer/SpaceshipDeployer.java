@@ -3,10 +3,10 @@ package com.codecool.marsexploration.mapexplorer.spaceship.placer;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 
-public class SpaceshipDeployment {
+public class SpaceshipDeployer {
     private final MapModel map;
 
-    public SpaceshipDeployment(MapModel map) {
+    public SpaceshipDeployer(MapModel map) {
         this.map = map;
     }
 

@@ -1,7 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.simulation;
 
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculatorImpl;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
+import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
 import com.codecool.marsexploration.mapexplorer.expeditionDeployer.MapExpeditionDeployer;
 import com.codecool.marsexploration.mapexplorer.logger.ConsoleLogger;
@@ -9,15 +9,16 @@ import com.codecool.marsexploration.mapexplorer.logger.FileLogger;
 import com.codecool.marsexploration.mapexplorer.logger.Logger;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
+import com.codecool.marsexploration.mapexplorer.outcome.Analyzer;
+import com.codecool.marsexploration.mapexplorer.outcome.LackOfResourcesAnalyzer;
+import com.codecool.marsexploration.mapexplorer.routines.ExplorationRoutine;
+import com.codecool.marsexploration.mapexplorer.routines.Routine;
 import com.codecool.marsexploration.mapexplorer.rovers.Rover;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
-import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployment;
+import com.codecool.marsexploration.mapexplorer.spaceship.placer.SpaceshipDeployer;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -41,23 +42,27 @@ class SimulationStepsTest {
 
     @Test
     void roverMovementRoutine() {
-        MapModel mapModel = new MapModel(fakeRepresentation, true);
+        MapModel mapModel = new MapModel(fakeRepresentation);
         Map<String, Set<Coordinate>> resourcesLocation = new HashMap<>();
         Coordinate spaceshipCoordinate = new Coordinate(1, 2);
 
         CoordinateCalculator calculator = new CoordinateCalculatorImpl(mapModel);
-        Rover rover = new Rover(0, "rover-1", null, 2, resourcesLocation, calculator);
+        Rover rover = new Rover( null, 2, resourcesLocation, calculator);
 
         RoverDeployer roverDeployer = new RoverDeployer(mapModel, calculator, rover);
-        SpaceshipDeployment spaceshipDeployment = new SpaceshipDeployment(mapModel);
+        SpaceshipDeployer spaceshipDeployment = new SpaceshipDeployer(mapModel);
         ExplorationSimulationConfiguration explorationConfig = mock(ExplorationSimulationConfiguration.class);
         when(explorationConfig.landingSpot()).thenReturn(spaceshipCoordinate);
 
         MapExpeditionDeployer deployer = new MapExpeditionDeployer(mapModel, roverDeployer, spaceshipDeployment, explorationConfig);
+        List<Rover> rovers = new ArrayList<>(List.of(rover));
 
-        Simulation simulation = new Simulation(100, rover, spaceshipCoordinate, mapModel, symbols);
-        SimulationSteps simulationSteps = new SimulationSteps(simulation, deployer, consoleLogger, fileLogger);
+        Simulation simulation = new Simulation(100, rovers, spaceshipCoordinate, mapModel, symbols);
+        Analyzer lackOfResourcesAnalyzer = new LackOfResourcesAnalyzer(simulation, calculator, fileLogger);
+        List<Analyzer> analyzers = List.of(lackOfResourcesAnalyzer);
+        List<Routine> routines = List.of(new ExplorationRoutine(simulation, deployer, consoleLogger, fileLogger, analyzers));
+        SimulationSteps simulationSteps = new SimulationSteps(routines);
 
-        simulationSteps.roverMovementRoutine();
+        simulationSteps.runRoutines();
     }
 }

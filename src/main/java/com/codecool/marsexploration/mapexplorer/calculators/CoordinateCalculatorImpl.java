@@ -1,8 +1,7 @@
-package com.codecool.marsexploration.mapexplorer.service.calculators;
+package com.codecool.marsexploration.mapexplorer.calculators;
 
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
-import com.codecool.marsexploration.mapexplorer.service.calculators.CoordinateCalculator;
 
 import java.util.ArrayList;
 import java.util.List;
