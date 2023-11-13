@@ -1,6 +1,5 @@
-package com.codecool.marsexploration.mapexplorer.maploader;
+package com.codecool.marsexploration.mapexplorer.map;
 
-import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;

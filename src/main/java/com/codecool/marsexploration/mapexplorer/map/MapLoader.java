@@ -1,6 +1,4 @@
-package com.codecool.marsexploration.mapexplorer.maploader;
-
-import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
+package com.codecool.marsexploration.mapexplorer.map;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

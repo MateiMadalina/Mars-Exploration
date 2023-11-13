@@ -1,8 +1,8 @@
 package com.codecool.marsexploration.mapexplorer.calculators;
 
-import com.codecool.marsexploration.mapexplorer.maploader.MapLoader;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
+import com.codecool.marsexploration.mapexplorer.map.MapLoader;
+import com.codecool.marsexploration.mapexplorer.map.Coordinate;
+import com.codecool.marsexploration.mapexplorer.map.MapModel;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 

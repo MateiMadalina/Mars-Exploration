@@ -2,8 +2,8 @@ package com.codecool.marsexploration.mapexplorer.configuration;
 
 import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculatorImpl;
-import com.codecool.marsexploration.mapexplorer.maploader.MapLoader;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
+import com.codecool.marsexploration.mapexplorer.map.MapLoader;
+import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;

@@ -4,13 +4,12 @@ import com.codecool.marsexploration.mapexplorer.configuration.ConfigurationValid
 import com.codecool.marsexploration.mapexplorer.configuration.ConfigurationValidatorImpl;
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
 import com.codecool.marsexploration.mapexplorer.expeditionDeployer.MapExpeditionDeployer;
-import com.codecool.marsexploration.mapexplorer.exploration.ExplorationOutcome;
 import com.codecool.marsexploration.mapexplorer.logger.ConsoleLogger;
 import com.codecool.marsexploration.mapexplorer.logger.FileLogger;
 import com.codecool.marsexploration.mapexplorer.logger.Logger;
-import com.codecool.marsexploration.mapexplorer.maploader.*;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
+import com.codecool.marsexploration.mapexplorer.map.*;
+import com.codecool.marsexploration.mapexplorer.map.Coordinate;
+import com.codecool.marsexploration.mapexplorer.map.MapModel;
 import com.codecool.marsexploration.mapexplorer.routines.BuildingRoutine;
 import com.codecool.marsexploration.mapexplorer.routines.ExplorationRoutine;
 import com.codecool.marsexploration.mapexplorer.routines.ExtractionRoutine;
@@ -35,12 +34,12 @@ public class ExplorationSimulator {
     List<String> symbols = List.of("#", "&", "%", "*");
     Logger consoleLogger = new ConsoleLogger();
     Logger fileLogger = new FileLogger("src/main/resources/exploration-outcome.txt");
-    MapLoader mapLoader = new MapLoader();
+
     MapModel currentMap;
 
     {
         try {
-            currentMap = mapLoader.load(mapFile,32,32);
+            currentMap = MapLoader.load(mapFile,32,32);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -71,7 +70,7 @@ public class ExplorationSimulator {
 
     public ExplorationSimulator() {
         try{
-            currentMap = mapLoader.load(mapFile,32,32);
+            currentMap = MapLoader.load(mapFile,32,32);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -89,7 +88,7 @@ public class ExplorationSimulator {
             fileLogger.log("Spaceship lands at coordinate: " + simulation.getSpaceShip());
             simulationSteps.runRoutines();
 
-            String analysisResult = String.valueOf(analyzers.get(0).analyze() ? ExplorationOutcome.COLONIZABLE : ExplorationOutcome.NOT_COLONIZABLE);
+            String analysisResult = analyzers.get(0).analyze() ? "COLONIZABLE" : "NOT COLONIZABLE";
 
             consoleLogger.log("Planet colonizable: " + analysisResult);
             fileLogger.log("Planet colonizable: " + analysisResult);

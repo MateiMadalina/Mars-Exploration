@@ -2,7 +2,7 @@ package com.codecool.marsexploration.mapexplorer.outcome;
 
 import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.logger.Logger;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
+import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import com.codecool.marsexploration.mapexplorer.simulation.Simulation;
 
 import java.util.List;

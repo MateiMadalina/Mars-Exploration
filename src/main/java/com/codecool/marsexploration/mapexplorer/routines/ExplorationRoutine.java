@@ -2,7 +2,7 @@ package com.codecool.marsexploration.mapexplorer.routines;
 
 import com.codecool.marsexploration.mapexplorer.expeditionDeployer.MapExpeditionDeployer;
 import com.codecool.marsexploration.mapexplorer.logger.Logger;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
+import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import com.codecool.marsexploration.mapexplorer.outcome.Analyzer;
 import com.codecool.marsexploration.mapexplorer.simulation.Simulation;
 

@@ -1,7 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.spaceship;
 
-import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
+import com.codecool.marsexploration.mapexplorer.map.Coordinate;
+import com.codecool.marsexploration.mapexplorer.map.MapModel;
 
 public class SpaceshipDeployer {
     private final MapModel map;

@@ -1,8 +1,5 @@
 package com.codecool.marsexploration.mapexplorer.simulation;
 
-import com.codecool.marsexploration.mapexplorer.expeditionDeployer.MapExpeditionDeployer;
-import com.codecool.marsexploration.mapexplorer.logger.Logger;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import com.codecool.marsexploration.mapexplorer.routines.BuildingRoutine;
 import com.codecool.marsexploration.mapexplorer.routines.ExplorationRoutine;
 import com.codecool.marsexploration.mapexplorer.routines.ExtractionRoutine;

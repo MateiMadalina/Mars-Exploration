@@ -1,8 +1,8 @@
 package com.codecool.marsexploration.mapexplorer.expeditionDeployer;
 
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
+import com.codecool.marsexploration.mapexplorer.map.Coordinate;
+import com.codecool.marsexploration.mapexplorer.map.MapModel;
 import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
 import com.codecool.marsexploration.mapexplorer.spaceship.SpaceshipDeployer;
 

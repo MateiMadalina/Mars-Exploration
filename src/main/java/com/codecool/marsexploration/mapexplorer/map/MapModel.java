@@ -1,4 +1,4 @@
-package com.codecool.marsexploration.mapexplorer.maploader.model;
+package com.codecool.marsexploration.mapexplorer.map;
 
 public record MapModel(String[][] representation) {
     public int getDimension() {

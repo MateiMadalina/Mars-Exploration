@@ -7,8 +7,8 @@ import com.codecool.marsexploration.mapexplorer.expeditionDeployer.MapExpedition
 import com.codecool.marsexploration.mapexplorer.logger.ConsoleLogger;
 import com.codecool.marsexploration.mapexplorer.logger.FileLogger;
 import com.codecool.marsexploration.mapexplorer.logger.Logger;
-import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
-import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
+import com.codecool.marsexploration.mapexplorer.map.Coordinate;
+import com.codecool.marsexploration.mapexplorer.map.MapModel;
 import com.codecool.marsexploration.mapexplorer.outcome.Analyzer;
 import com.codecool.marsexploration.mapexplorer.outcome.LackOfResourcesAnalyzer;
 import com.codecool.marsexploration.mapexplorer.routines.ExplorationRoutine;
