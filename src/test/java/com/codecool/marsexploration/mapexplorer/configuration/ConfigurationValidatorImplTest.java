@@ -2,10 +2,7 @@ package com.codecool.marsexploration.mapexplorer.configuration;
 
 import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculatorImpl;
-import com.codecool.marsexploration.mapexplorer.input.MapFileReader;
-import com.codecool.marsexploration.mapexplorer.input.MapFileReaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.MapLoader;
-import com.codecool.marsexploration.mapexplorer.maploader.MapLoaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.Coordinate;
 import org.junit.jupiter.api.Test;
 
@@ -15,8 +12,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConfigurationValidatorImplTest {
-    private final MapFileReader mapFileReader = new MapFileReaderImpl();
-    private final MapLoader mapLoader = new MapLoaderImpl(mapFileReader);
     private final String mapFile = "src/main/resources/exploration-0.map";
     private final List<String> symbols = List.of("#", "&", "*", "%");
 
@@ -26,10 +21,10 @@ class ConfigurationValidatorImplTest {
 
         ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(
                 mapFile, coordinate, symbols, 30);
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(MapLoader.load(mapFile,32,32));
         ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
 
-        assertTrue(configurationValidator.validate(mapLoader.load(mapFile)));
+        assertTrue(configurationValidator.validate(MapLoader.load(mapFile,32,32)));
     }
 
     @Test
@@ -38,10 +33,10 @@ class ConfigurationValidatorImplTest {
         ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(
                 mapFile, coordinate, symbols, 30);
 
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(MapLoader.load(mapFile,32,32));
         ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
 
-        assertFalse(configurationValidator.validate(mapLoader.load(mapFile)));
+        assertFalse(configurationValidator.validate(MapLoader.load(mapFile,32,32)));
     }
 
     @Test
@@ -49,10 +44,10 @@ class ConfigurationValidatorImplTest {
         Coordinate coordinate = new Coordinate(16, 26);
         ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(
                 mapFile, coordinate, symbols, 30);
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(MapLoader.load(mapFile,32,32));
         ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
 
-        assertFalse(configurationValidator.validate(mapLoader.load(mapFile)));
+        assertFalse(configurationValidator.validate(MapLoader.load(mapFile,32,32)));
     }
 
     @Test
@@ -60,10 +55,10 @@ class ConfigurationValidatorImplTest {
         Coordinate coordinate = new Coordinate(16, 28);
         ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(
                 mapFile, coordinate, symbols, 30);
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(MapLoader.load(mapFile,32,32));
         ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
 
-        assertTrue(configurationValidator.validate(mapLoader.load(mapFile)));
+        assertTrue(configurationValidator.validate(MapLoader.load(mapFile,32,32)));
     }
 
     @Test
@@ -72,10 +67,10 @@ class ConfigurationValidatorImplTest {
         String emptyMapFile = "src/main/resources/exploration-empty.map";
         ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(
                 emptyMapFile, coordinate, symbols, 30);
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(emptyMapFile));
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(MapLoader.load(mapFile,32,32));
         ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
 
-        assertFalse(configurationValidator.validate(mapLoader.load(emptyMapFile)));
+        assertFalse(configurationValidator.validate(MapLoader.load(mapFile,32,32)));
     }
 
     @Test
@@ -83,9 +78,9 @@ class ConfigurationValidatorImplTest {
             Coordinate coordinate = new Coordinate(16, 28);
             ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(
                     mapFile, coordinate, symbols, -3);
-            CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(mapLoader.load(mapFile));
+            CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(MapLoader.load(mapFile,32,32));
             ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
 
-            assertFalse(configurationValidator.validate(mapLoader.load(mapFile)));
+            assertFalse(configurationValidator.validate(MapLoader.load(mapFile,32,32)));
         }
 }

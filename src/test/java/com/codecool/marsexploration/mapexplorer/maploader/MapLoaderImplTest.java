@@ -1,7 +1,5 @@
 package com.codecool.marsexploration.mapexplorer.maploader;
 
-import com.codecool.marsexploration.mapexplorer.input.MapFileReader;
-import com.codecool.marsexploration.mapexplorer.input.MapFileReaderImpl;
 import com.codecool.marsexploration.mapexplorer.maploader.model.MapModel;
 import org.junit.jupiter.api.Test;
 
@@ -9,8 +7,7 @@ import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.*;
 class MapLoaderImplTest {
-    private final MapFileReader mapFileReader = new MapFileReaderImpl();
-    private final MapLoader mapLoader = new MapLoaderImpl(mapFileReader);
+
     private final String mapFile = "src/main/resources/exploration-0.map";
 
     @Test
@@ -18,7 +15,7 @@ class MapLoaderImplTest {
         int expectedRows = 32;
         int expectedColumns = 32;
 
-        MapModel generatedMap = mapLoader.load(mapFile);
+        MapModel generatedMap = MapLoader.load(mapFile,32,32);
         int actualRows = generatedMap.representation().length;
         int actualColumns = generatedMap.representation()[0].length;
 
@@ -33,7 +30,7 @@ class MapLoaderImplTest {
         int expectedMineralNumber = 10;
         int expectedWaterNumber = 10;
 
-        MapModel generatedMap = mapLoader.load(mapFile);
+        MapModel generatedMap = MapLoader.load(mapFile,32,32);
         String stringMap = generatedMap.toString();
 
         int mountainCount = stringMap.length() - stringMap.replaceAll("#", "").length();
@@ -49,8 +46,8 @@ class MapLoaderImplTest {
 
     @Test
     void loadGeneratesCorrectMapRepresentation() throws FileNotFoundException {
-        String expectedMapString = mapFileReader.readMapFile(mapFile);
-        String actualMapString = mapLoader.load(mapFile).toString().replaceAll("\n", "");
+        String expectedMapString = MapLoader.readMapFile(mapFile);
+        String actualMapString = MapLoader.load(mapFile,32,32).toString().replaceAll("\n", "");
 
         assertEquals(expectedMapString, actualMapString);
     }
