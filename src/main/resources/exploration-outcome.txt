@@ -1,5 +1,5 @@
-[2023-11-13T15:30:33.282367] INFO: Map to explore:
-[2023-11-13T15:30:33.285826900] INFO:                                 
+[2023-11-13T17:14:34.760469100] INFO: Map to explore:
+[2023-11-13T17:14:34.763466100] INFO:                                 
              %  #  #            
         *& & ##                 
          *           *          
@@ -32,99 +32,22 @@
                                 
                                 
 
-[2023-11-13T15:30:33.290327500] INFO: Spaceship lands at coordinate: Coordinate[x=11, y=2]
-[2023-11-13T15:30:33.291403] INFO: Rover deployed at coordinate: Coordinate[x=12, y=2]
-[2023-11-13T15:30:33.299410300] INFO: Rover moves to coordinate: Coordinate[x=13, y=1]
-[2023-11-13T15:30:33.302952200] INFO: Rover moves to coordinate: Coordinate[x=14, y=0]
-[2023-11-13T15:30:33.304220300] INFO: Rover moves to coordinate: Coordinate[x=13, y=0]
-[2023-11-13T15:30:33.304220300] INFO: Rover moves to coordinate: Coordinate[x=14, y=1]
-[2023-11-13T15:30:33.307504800] INFO: Rover moves to coordinate: Coordinate[x=15, y=2]
-[2023-11-13T15:30:33.307504800] INFO: Rover moves to coordinate: Coordinate[x=14, y=3]
-[2023-11-13T15:30:33.308726400] INFO: Rover moves to coordinate: Coordinate[x=14, y=2]
-[2023-11-13T15:30:33.309738100] INFO: Rover moves to coordinate: Coordinate[x=13, y=3]
-[2023-11-13T15:30:33.310753600] INFO: Rover moves to coordinate: Coordinate[x=13, y=2]
-[2023-11-13T15:30:33.310753600] INFO: Rover moves to coordinate: Coordinate[x=12, y=1]
-[2023-11-13T15:30:33.311751100] INFO: Rover moves to coordinate: Coordinate[x=11, y=1]
-[2023-11-13T15:30:33.312753300] INFO: Rover moves to coordinate: Coordinate[x=10, y=2]
-[2023-11-13T15:30:33.312753300] INFO: Rover moves to coordinate: Coordinate[x=10, y=1]
-[2023-11-13T15:30:33.313746500] INFO: Rover moves to coordinate: Coordinate[x=9, y=0]
-[2023-11-13T15:30:33.313746500] INFO: Rover moves to coordinate: Coordinate[x=8, y=1]
-[2023-11-13T15:30:33.314748200] INFO: Rover moves to coordinate: Coordinate[x=7, y=1]
-[2023-11-13T15:30:33.315746600] INFO: Rover moves to coordinate: Coordinate[x=8, y=2]
-[2023-11-13T15:30:33.315746600] INFO: Rover moves to coordinate: Coordinate[x=9, y=2]
-[2023-11-13T15:30:33.316746500] INFO: Rover moves to coordinate: Coordinate[x=8, y=3]
-[2023-11-13T15:30:33.316746500] INFO: Rover moves to coordinate: Coordinate[x=7, y=2]
-[2023-11-13T15:30:33.317871500] INFO: Rover moves to coordinate: Coordinate[x=7, y=3]
-[2023-11-13T15:30:33.317871500] INFO: Rover moves to coordinate: Coordinate[x=8, y=4]
-[2023-11-13T15:30:33.318880100] INFO: Rover moves to coordinate: Coordinate[x=7, y=4]
-[2023-11-13T15:30:33.318880100] INFO: Rover moves to coordinate: Coordinate[x=6, y=3]
-[2023-11-13T15:30:33.320212400] INFO: Rover moves to coordinate: Coordinate[x=5, y=3]
-[2023-11-13T15:30:33.321222300] INFO: Rover moves to coordinate: Coordinate[x=4, y=3]
-[2023-11-13T15:30:33.321222300] INFO: Rover moves to coordinate: Coordinate[x=3, y=4]
-[2023-11-13T15:30:33.322232600] INFO: Rover moves to coordinate: Coordinate[x=2, y=4]
-[2023-11-13T15:30:33.322232600] INFO: Rover moves to coordinate: Coordinate[x=3, y=3]
-[2023-11-13T15:30:33.323230400] INFO: Rover moves to coordinate: Coordinate[x=4, y=4]
-[2023-11-13T15:30:33.324234] INFO: Rover moves to coordinate: Coordinate[x=3, y=5]
-[2023-11-13T15:30:33.324738400] INFO: Rover moves to coordinate: Coordinate[x=2, y=6]
-[2023-11-13T15:30:33.324738400] INFO: Rover moves to coordinate: Coordinate[x=3, y=7]
-[2023-11-13T15:30:33.326045300] INFO: Rover moves to coordinate: Coordinate[x=4, y=6]
-[2023-11-13T15:30:33.326045300] INFO: Rover moves to coordinate: Coordinate[x=4, y=5]
-[2023-11-13T15:30:33.327359400] INFO: Rover moves to coordinate: Coordinate[x=5, y=6]
-[2023-11-13T15:30:33.328367900] INFO: Rover moves to coordinate: Coordinate[x=5, y=7]
-[2023-11-13T15:30:33.330490300] INFO: Rover moves to coordinate: Coordinate[x=4, y=8]
-[2023-11-13T15:30:33.330490300] INFO: Rover moves to coordinate: Coordinate[x=4, y=9]
-[2023-11-13T15:30:33.331532900] INFO: Rover moves to coordinate: Coordinate[x=5, y=9]
-[2023-11-13T15:30:33.332540500] INFO: Rover moves to coordinate: Coordinate[x=4, y=10]
-[2023-11-13T15:30:33.333944500] INFO: Rover moves to coordinate: Coordinate[x=4, y=11]
-[2023-11-13T15:30:33.333944500] INFO: Rover moves to coordinate: Coordinate[x=4, y=12]
-[2023-11-13T15:30:33.335465900] INFO: Rover moves to coordinate: Coordinate[x=5, y=13]
-[2023-11-13T15:30:33.335465900] INFO: Rover moves to coordinate: Coordinate[x=5, y=12]
-[2023-11-13T15:30:33.336764200] INFO: Rover moves to coordinate: Coordinate[x=5, y=11]
-[2023-11-13T15:30:33.337777300] INFO: Rover moves to coordinate: Coordinate[x=5, y=10]
-[2023-11-13T15:30:33.338780600] INFO: Rover moves to coordinate: Coordinate[x=6, y=11]
-[2023-11-13T15:30:33.339778400] INFO: Rover moves to coordinate: Coordinate[x=7, y=10]
-[2023-11-13T15:30:33.340788] INFO: Rover moves to coordinate: Coordinate[x=8, y=10]
-[2023-11-13T15:30:33.341775600] INFO: Rover moves to coordinate: Coordinate[x=9, y=10]
-[2023-11-13T15:30:33.343128500] INFO: Rover moves to coordinate: Coordinate[x=10, y=11]
-[2023-11-13T15:30:33.344149300] INFO: Rover moves to coordinate: Coordinate[x=11, y=11]
-[2023-11-13T15:30:33.344149300] INFO: Rover moves to coordinate: Coordinate[x=10, y=10]
-[2023-11-13T15:30:33.344149300] INFO: Rover moves to coordinate: Coordinate[x=11, y=10]
-[2023-11-13T15:30:33.345629100] INFO: Rover moves to coordinate: Coordinate[x=12, y=10]
-[2023-11-13T15:30:33.345629100] INFO: Rover moves to coordinate: Coordinate[x=13, y=9]
-[2023-11-13T15:30:33.346907] INFO: Rover moves to coordinate: Coordinate[x=14, y=8]
-[2023-11-13T15:30:33.347919400] INFO: Rover moves to coordinate: Coordinate[x=13, y=9]
-[2023-11-13T15:30:33.348921700] INFO: 
+[2023-11-13T17:14:34.767210200] INFO: Spaceship lands at coordinate: Coordinate[x=5, y=1]
+[2023-11-13T17:14:34.768254600] INFO: Rover deployed at coordinate: Coordinate[x=4, y=1]
+[2023-11-13T17:14:34.770260200] INFO: Rover moves to coordinate: Coordinate[x=3, y=2]
+[2023-11-13T17:14:34.771420600] INFO: Rover moves to coordinate: Coordinate[x=2, y=3]
+[2023-11-13T17:14:34.771929800] INFO: Rover moves to coordinate: Coordinate[x=1, y=2]
+[2023-11-13T17:14:34.771929800] INFO: Rover moves to coordinate: Coordinate[x=0, y=2]
+[2023-11-13T17:14:34.772939500] INFO: Rover moves to coordinate: Coordinate[x=0, y=1]
+[2023-11-13T17:14:34.773935600] INFO: Rover moves to coordinate: Coordinate[x=1, y=0]
+[2023-11-13T17:14:34.773935600] INFO: Rover moves to coordinate: Coordinate[x=2, y=0]
+[2023-11-13T17:14:34.774936400] INFO: Rover moves to coordinate: Coordinate[x=3, y=1]
+[2023-11-13T17:14:34.774936400] INFO: Rover moves to coordinate: Coordinate[x=3, y=0]
+[2023-11-13T17:14:34.776935900] INFO: Rover moves to coordinate: Coordinate[x=2, y=1]
+[2023-11-13T17:14:34.777936] INFO: Rover moves to coordinate: Coordinate[x=1, y=1]
+[2023-11-13T17:14:34.779938200] INFO: Rover moves to coordinate: Coordinate[x=0, y=0]
+[2023-11-13T17:14:34.790878800] INFO: Rover moves to coordinate: Coordinate[x=1, y=0]
+[2023-11-13T17:14:34.792886100] INFO: 
 
-[2023-11-13T15:30:33.349923900] INFO: Resources found by Rover:
-[2023-11-13T15:30:33.352916200] INFO: Mountains: 16
-[2023-11-13T15:30:33.353918100] INFO: Pits: 5
-[2023-11-13T15:30:33.353918100] INFO: Minerals: 3
-[2023-11-13T15:30:33.355317500] INFO: Pockets of water: 3
-[2023-11-13T15:30:33.355824200] INFO: Rover select the mineral located at: Coordinate[x=6, y=14]
-[2023-11-13T15:30:33.355824200] INFO: Rover starts extraction
-[2023-11-13T15:30:33.357131300] INFO: Rover has collected enough materials
-[2023-11-13T15:30:33.358671400] INFO: Selection of command center location: Coordinate[x=5, y=13]
-[2023-11-13T15:30:33.358671400] INFO: Command center created with rover resources
-[2023-11-13T15:30:33.361775100] INFO: Extration protocol initiated...
-[2023-11-13T15:30:33.363774400] INFO: All available resource sites: [Coordinate[x=1, y=13], Coordinate[x=2, y=8], Coordinate[x=3, y=9], Coordinate[x=3, y=21], Coordinate[x=9, y=11], Coordinate[x=9, y=19], Coordinate[x=10, y=15], Coordinate[x=10, y=22], Coordinate[x=14, y=13]]
-[2023-11-13T15:30:33.365169400] INFO: First rover extracted enough minerals to build other rovers
-[2023-11-13T15:30:33.367491400] INFO: Rover2 extracted a mineral at coordinate Coordinate[x=1, y=13]
-[2023-11-13T15:30:33.368506200] INFO: The resource has been brought to the command center!
-[2023-11-13T15:30:33.369506300] INFO: Rover3 extracted a pocket of water at coordinate Coordinate[x=2, y=8]
-[2023-11-13T15:30:33.370987900] INFO: The resource has been brought to the command center!
-[2023-11-13T15:30:33.373003400] INFO: Rover4 extracted a pocket of water at coordinate Coordinate[x=3, y=9]
-[2023-11-13T15:30:33.373003400] INFO: The resource has been brought to the command center!
-[2023-11-13T15:30:33.374008700] INFO: Rover5 extracted a pocket of water at coordinate Coordinate[x=3, y=21]
-[2023-11-13T15:30:33.375006600] INFO: The resource has been brought to the command center!
-[2023-11-13T15:30:33.376511200] INFO: Rover6 extracted a pocket of water at coordinate Coordinate[x=9, y=11]
-[2023-11-13T15:30:33.377520500] INFO: The resource has been brought to the command center!
-[2023-11-13T15:30:33.377520500] INFO: Rover7 extracted a pocket of water at coordinate Coordinate[x=9, y=19]
-[2023-11-13T15:30:33.378704700] INFO: The resource has been brought to the command center!
-[2023-11-13T15:30:33.378704700] INFO: Rover8 extracted a pocket of water at coordinate Coordinate[x=10, y=15]
-[2023-11-13T15:30:33.379719600] INFO: The resource has been brought to the command center!
-[2023-11-13T15:30:33.380716900] INFO: Rover9 extracted a mineral at coordinate Coordinate[x=10, y=22]
-[2023-11-13T15:30:33.381714100] INFO: The resource has been brought to the command center!
-[2023-11-13T15:30:33.381714100] INFO: Rover10 extracted a pocket of water at coordinate Coordinate[x=14, y=13]
-[2023-11-13T15:30:33.383114600] INFO: The resource has been brought to the command center!
-[2023-11-13T15:30:33.384127500] INFO: All the resources near command center have been exhausted!
-[2023-11-13T15:30:33.385414] INFO: Planet colonizable: COLONIZABLE
+[2023-11-13T17:14:34.792886100] INFO: Resources found by Rover:
+[2023-11-13T17:14:34.794886400] INFO: Planet colonizable: NOT_COLONIZABLE

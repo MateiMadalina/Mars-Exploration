@@ -79,6 +79,7 @@ public class ExplorationSimulator {
 
     public void run() {
         clearFile();
+        consoleLogger.log("Legend:\n # - Mountains  \n & - Pits \n % - Minerals \n * - Pockets Of Water \n");
         consoleLogger.log("Map to explore:");
         fileLogger.log("Map to explore:");
         consoleLogger.log(simulation.getMap().toString());
