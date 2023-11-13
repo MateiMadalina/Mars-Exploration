@@ -16,6 +16,7 @@ The 'Mars Exploration' Java project is an application used to simulate explorati
 
 ### How to Use
 After the run button has been pressed, the following information will be displayed in the console:
+![legend](https://github.com/MateiMadalina/Mars-Exploration/assets/116349352/17dd59fc-e4f1-4c71-a35f-b7acfa8c4381)
 ![Map](https://github.com/MateiMadalina/Mars-Exploration/assets/116349352/9cde2132-30fc-45d4-a32f-76116bbea5d3)
 ![spaceship landing and rover deployer](https://github.com/MateiMadalina/Mars-Exploration/assets/116349352/97dbc7aa-7455-47ce-b6ba-8a7972f6c3e8)
 ![part of the movement of the rover in search of resources](https://github.com/MateiMadalina/Mars-Exploration/assets/116349352/d0161469-5d8c-4811-b1a4-78d56cc448c3)
