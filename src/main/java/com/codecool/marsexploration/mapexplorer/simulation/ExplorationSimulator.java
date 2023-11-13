@@ -1,5 +1,7 @@
 package com.codecool.marsexploration.mapexplorer.simulation;
 
+import com.codecool.marsexploration.mapexplorer.configuration.ConfigurationValidator;
+import com.codecool.marsexploration.mapexplorer.configuration.ConfigurationValidatorImpl;
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
 import com.codecool.marsexploration.mapexplorer.expeditionDeployer.MapExpeditionDeployer;
 import com.codecool.marsexploration.mapexplorer.exploration.ExplorationOutcome;
@@ -52,6 +54,8 @@ public class ExplorationSimulator {
     SpaceshipDeployer spaceshipDeployer = new SpaceshipDeployer(currentMap);
     RoverDeployer roverDeployer = new RoverDeployer(currentMap, coordinateCalculator, rover);
     ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(mapFile, spaceshipCoordinate, symbols, stepsToTimeout);
+    ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
+
     MapExpeditionDeployer mapExpeditionDeployer = new MapExpeditionDeployer(currentMap, roverDeployer, spaceshipDeployer, explorationConfig);
     Analyzer lackOfResourcesAnalyzer = new LackOfResourcesAnalyzer(simulation, coordinateCalculator, fileLogger);
     List<Analyzer> analyzers = List.of(lackOfResourcesAnalyzer);
@@ -74,20 +78,25 @@ public class ExplorationSimulator {
     }
 
     public void run() {
-        clearFile();
-        consoleLogger.log("Legend:\n # - Mountains  \n & - Pits \n % - Minerals \n * - Pockets Of Water \n");
-        consoleLogger.log("Map to explore:");
-        fileLogger.log("Map to explore:");
-        consoleLogger.log(simulation.getMap().toString());
-        fileLogger.log(simulation.getMap().toString());
-        consoleLogger.log("Spaceship lands at coordinate: " + simulation.getSpaceShip());
-        fileLogger.log("Spaceship lands at coordinate: " + simulation.getSpaceShip());
-        simulationSteps.runRoutines();
+        if(configurationValidator.validate(currentMap)) {
+            clearFile();
+            consoleLogger.log("Legend:\n # - Mountains  \n & - Pits \n % - Minerals \n * - Pockets Of Water \n");
+            consoleLogger.log("Map to explore:");
+            fileLogger.log("Map to explore:");
+            consoleLogger.log(simulation.getMap().toString());
+            fileLogger.log(simulation.getMap().toString());
+            consoleLogger.log("Spaceship lands at coordinate: " + simulation.getSpaceShip());
+            fileLogger.log("Spaceship lands at coordinate: " + simulation.getSpaceShip());
+            simulationSteps.runRoutines();
 
-        String analysisResult = String.valueOf(analyzers.get(0).analyze() ? ExplorationOutcome.COLONIZABLE : ExplorationOutcome.NOT_COLONIZABLE);
+            String analysisResult = String.valueOf(analyzers.get(0).analyze() ? ExplorationOutcome.COLONIZABLE : ExplorationOutcome.NOT_COLONIZABLE);
 
-        consoleLogger.log("Planet colonizable: " + analysisResult);
-        fileLogger.log("Planet colonizable: " + analysisResult);
+            consoleLogger.log("Planet colonizable: " + analysisResult);
+            fileLogger.log("Planet colonizable: " + analysisResult);
+        }else {
+            consoleLogger.logError("Invalid Map!!!");
+            fileLogger.logError("Ivalid Map!!!");
+        }
     }
 
     private void clearFile() {

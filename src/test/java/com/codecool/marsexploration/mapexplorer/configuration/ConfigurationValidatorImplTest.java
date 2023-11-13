@@ -67,10 +67,10 @@ class ConfigurationValidatorImplTest {
         String emptyMapFile = "src/main/resources/exploration-empty.map";
         ExplorationSimulationConfiguration explorationConfig = new ExplorationSimulationConfiguration(
                 emptyMapFile, coordinate, symbols, 30);
-        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(MapLoader.load(mapFile,32,32));
+        CoordinateCalculator coordinateCalculator = new CoordinateCalculatorImpl(MapLoader.load(emptyMapFile,32,32));
         ConfigurationValidator configurationValidator = new ConfigurationValidatorImpl(coordinateCalculator,explorationConfig);
 
-        assertFalse(configurationValidator.validate(MapLoader.load(mapFile,32,32)));
+        assertFalse(configurationValidator.validate(MapLoader.load(emptyMapFile,32,32)));
     }
 
     @Test
