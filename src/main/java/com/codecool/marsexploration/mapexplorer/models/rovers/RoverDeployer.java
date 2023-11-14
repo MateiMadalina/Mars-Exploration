@@ -1,9 +1,8 @@
-package com.codecool.marsexploration.mapexplorer.rovers.placer;
+package com.codecool.marsexploration.mapexplorer.models.rovers;
 
 import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import com.codecool.marsexploration.mapexplorer.map.MapModel;
-import com.codecool.marsexploration.mapexplorer.rovers.Rover;
 
 import java.util.List;
 import java.util.Random;

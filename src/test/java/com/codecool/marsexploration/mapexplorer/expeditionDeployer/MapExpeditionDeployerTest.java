@@ -5,9 +5,9 @@ import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator
 import com.codecool.marsexploration.mapexplorer.configuration.ExplorationSimulationConfiguration;
 import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import com.codecool.marsexploration.mapexplorer.map.MapModel;
-import com.codecool.marsexploration.mapexplorer.rovers.Rover;
-import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
-import com.codecool.marsexploration.mapexplorer.spaceship.SpaceshipDeployer;
+import com.codecool.marsexploration.mapexplorer.models.rovers.Rover;
+import com.codecool.marsexploration.mapexplorer.models.rovers.RoverDeployer;
+import com.codecool.marsexploration.mapexplorer.models.spaceship.SpaceshipDeployer;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

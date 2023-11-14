@@ -1,4 +1,4 @@
-package com.codecool.marsexploration.mapexplorer.rovers;
+package com.codecool.marsexploration.mapexplorer.models.rovers;
 
 import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator;
 import com.codecool.marsexploration.mapexplorer.map.Coordinate;

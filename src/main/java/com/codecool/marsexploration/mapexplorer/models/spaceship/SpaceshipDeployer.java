@@ -1,4 +1,4 @@
-package com.codecool.marsexploration.mapexplorer.spaceship;
+package com.codecool.marsexploration.mapexplorer.models.spaceship;
 
 import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import com.codecool.marsexploration.mapexplorer.map.MapModel;

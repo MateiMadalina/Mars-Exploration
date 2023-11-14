@@ -2,6 +2,7 @@ package com.codecool.marsexploration.mapexplorer.spaceship;
 
 import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import com.codecool.marsexploration.mapexplorer.map.MapModel;
+import com.codecool.marsexploration.mapexplorer.models.spaceship.SpaceshipDeployer;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

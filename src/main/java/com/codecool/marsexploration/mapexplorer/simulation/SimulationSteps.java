@@ -20,6 +20,7 @@ public class SimulationSteps {
         }
         for(Routine routine : routines) {
             if(routine instanceof ExtractionRoutine currentRoutine){
+                assert buildingRoutine != null;
                 currentRoutine.setCommandCenter(buildingRoutine.getCommandCenter());
             }
             routine.run();

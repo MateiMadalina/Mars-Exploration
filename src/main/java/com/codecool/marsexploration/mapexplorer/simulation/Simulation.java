@@ -2,7 +2,7 @@ package com.codecool.marsexploration.mapexplorer.simulation;
 
 import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import com.codecool.marsexploration.mapexplorer.map.MapModel;
-import com.codecool.marsexploration.mapexplorer.rovers.Rover;
+import com.codecool.marsexploration.mapexplorer.models.rovers.Rover;
 
 import java.util.List;
 

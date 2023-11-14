@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class MapLoader {
+public abstract class MapLoader {
     private static final String EMPTY_SPACE = " ";
 
     public static MapModel load(String filePath, int rows, int columns) throws FileNotFoundException {

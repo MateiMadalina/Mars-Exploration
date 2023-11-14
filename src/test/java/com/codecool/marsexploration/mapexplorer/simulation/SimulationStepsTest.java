@@ -13,9 +13,9 @@ import com.codecool.marsexploration.mapexplorer.outcome.Analyzer;
 import com.codecool.marsexploration.mapexplorer.outcome.LackOfResourcesAnalyzer;
 import com.codecool.marsexploration.mapexplorer.routines.ExplorationRoutine;
 import com.codecool.marsexploration.mapexplorer.routines.Routine;
-import com.codecool.marsexploration.mapexplorer.rovers.Rover;
-import com.codecool.marsexploration.mapexplorer.rovers.placer.RoverDeployer;
-import com.codecool.marsexploration.mapexplorer.spaceship.SpaceshipDeployer;
+import com.codecool.marsexploration.mapexplorer.models.rovers.Rover;
+import com.codecool.marsexploration.mapexplorer.models.rovers.RoverDeployer;
+import com.codecool.marsexploration.mapexplorer.models.spaceship.SpaceshipDeployer;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;

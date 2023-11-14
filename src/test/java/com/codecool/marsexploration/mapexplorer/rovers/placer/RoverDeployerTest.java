@@ -4,7 +4,8 @@ import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculator
 import com.codecool.marsexploration.mapexplorer.calculators.CoordinateCalculatorImpl;
 import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import com.codecool.marsexploration.mapexplorer.map.MapModel;
-import com.codecool.marsexploration.mapexplorer.rovers.Rover;
+import com.codecool.marsexploration.mapexplorer.models.rovers.Rover;
+import com.codecool.marsexploration.mapexplorer.models.rovers.RoverDeployer;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

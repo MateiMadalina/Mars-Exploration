@@ -8,7 +8,7 @@ import com.codecool.marsexploration.mapexplorer.logger.Logger;
 import com.codecool.marsexploration.mapexplorer.map.MapLoader;
 import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 import com.codecool.marsexploration.mapexplorer.map.MapModel;
-import com.codecool.marsexploration.mapexplorer.rovers.Rover;
+import com.codecool.marsexploration.mapexplorer.models.rovers.Rover;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -25,8 +25,7 @@ public class BuildingRoutineTest {
     );
     Logger consoleLogger = new ConsoleLogger();
     Logger fileLogger = new FileLogger("src/main/resources/exploration-outcome.txt");
-    MapLoader mapLoader = new MapLoader();
-    MapModel currentMap = mapLoader.load(mapFile,32,32);
+    MapModel currentMap = MapLoader.load(mapFile,32,32);
     CoordinateCalculator calculator = new CoordinateCalculatorImpl(currentMap);
     Rover rover = new Rover( new Coordinate(1, 14), 1, resourceLocations, calculator);
     BuildingRoutine buildingRoutine = new BuildingRoutine(calculator, rover, null, consoleLogger, fileLogger);

@@ -1,4 +1,4 @@
-package com.codecool.marsexploration.mapexplorer.commandCenter;
+package com.codecool.marsexploration.mapexplorer.models.commandCenter;
 
 import com.codecool.marsexploration.mapexplorer.map.Coordinate;
 
